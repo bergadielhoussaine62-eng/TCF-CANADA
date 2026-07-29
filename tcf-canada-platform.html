@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة TCF Canada — من A0 حتى B2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0F1D33;
+  --ink-2:#16294a;
+  --ink-3:#1e335a;
+  --paper:#F3EFE4;
+  --paper-dim:#c9c4b3;
+  --gold:#C9A227;
+  --gold-soft:#e8cf7a;
+  --maple:#C0453A;
+  --ok:#6E9B7B;
+  --bad:#c0453a;
+  --line:rgba(243,239,228,0.14);
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:
+    radial-gradient(circle at 12% 8%, rgba(201,162,39,0.10), transparent 40%),
+    radial-gradient(circle at 90% 85%, rgba(192,69,58,0.10), transparent 45%),
+    var(--ink);
+  color:var(--paper);
+  font-family:'Noto Sans Arabic','Noto Sans',sans-serif;
+  min-height:100vh;
+  line-height:1.7;
+}
+.fr{font-family:'Noto Sans',sans-serif;direction:ltr;text-align:left;}
+h1,h2,h3,.display{font-family:'Fraunces','Noto Sans Arabic',serif;}
+.mono{font-family:'Space Mono',monospace;letter-spacing:0.04em;}
+
+/* ---- shell ---- */
+.shell{max-width:1180px;margin:0 auto;padding:28px 20px 80px;}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:26px;}
+.brand{display:flex;align-items:center;gap:14px;}
+.seal{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Space Mono',monospace;font-weight:700;font-size:13px;flex-shrink:0;}
+.brand h1{font-size:26px;margin:0;color:var(--paper);}
+.brand p{margin:2px 0 0;color:var(--paper-dim);font-size:13.5px;}
+.progress-pill{background:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13px;color:var(--gold-soft);white-space:nowrap;}
+
+/* ---- passport strip (levels) ---- */
+.passport{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
+.pp-tab{
+  position:relative;flex:1;min-width:110px;
+  background:var(--ink-2);border:1px solid var(--line);border-radius:10px;
+  padding:14px 10px 12px;text-align:center;cursor:pointer;transition:.15s;
+}
+.pp-tab:hover{border-color:var(--gold-soft);}
+.pp-tab.active{background:var(--ink-3);border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset;}
+.pp-tab .code{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--paper);}
+.pp-tab .lbl{font-size:11px;color:var(--paper-dim);margin-top:2px;}
+.stamp{
+  position:absolute;top:-10px;left:-8px;width:34px;height:34px;border-radius:50%;
+  border:2px solid var(--maple);color:var(--maple);display:flex;align-items:center;justify-content:center;
+  font-size:16px;background:var(--ink);transform:rotate(-14deg);
+}
+
+/* ---- skill tabs ---- */
+.skills{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
+.sk-tab{
+  background:transparent;border:1px solid var(--line);color:var(--paper-dim);
+  padding:10px 16px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;
+  display:flex;align-items:center;gap:8px;transition:.15s;
+}
+.sk-tab.active{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+.sk-tab .badge{width:8px;height:8px;border-radius:50%;background:var(--ok);display:none;}
+.sk-tab.done .badge{display:inline-block;}
+
+/* ---- card ---- */
+.card{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:20px;}
+.card h2{margin:0 0 4px;font-size:20px;color:var(--paper);}
+.card .sub{color:var(--gold-soft);font-size:13px;margin-bottom:18px;}
+.instr{background:var(--ink-3);border-radius:10px;padding:14px 16px;margin-bottom:18px;font-size:14.5px;color:var(--paper-dim);border-right:3px solid var(--gold);}
+
+.btn{
+  background:var(--gold);color:var(--ink);border:none;border-radius:8px;
+  padding:10px 20px;font-weight:700;font-size:14px;cursor:pointer;transition:.15s;
+  font-family:'Noto Sans Arabic',sans-serif;
+}
+.btn:hover{background:var(--gold-soft);}
+.btn.secondary{background:transparent;border:1px solid var(--gold);color:var(--gold-soft);}
+.btn.secondary:hover{background:rgba(201,162,39,0.1);}
+.btn:disabled{opacity:.4;cursor:not-allowed;}
+
+.transcript-box{background:var(--ink-3);border-radius:10px;padding:16px 18px;margin:14px 0;font-size:15px;display:none;}
+.passage{background:var(--ink-3);border-radius:10px;padding:18px 20px;margin-bottom:18px;font-size:15.5px;}
+
+.q{margin:18px 0;padding-bottom:16px;border-bottom:1px solid var(--line);}
+.q:last-child{border-bottom:none;}
+.q .qtext{font-size:15px;color:var(--paper);margin-bottom:10px;font-weight:600;}
+.opt{display:block;background:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:8px;cursor:pointer;font-size:14.5px;transition:.15s;}
+.opt:hover{border-color:var(--gold-soft);}
+.opt input{margin-left:10px;}
+.opt.correct{border-color:var(--ok);background:rgba(110,155,123,0.15);}
+.opt.wrong{border-color:var(--bad);background:rgba(192,69,58,0.15);}
+.explain{font-size:13px;color:var(--paper-dim);margin-top:8px;display:none;background:var(--ink);padding:8px 12px;border-radius:6px;}
+
+.score-box{background:var(--ink-3);border:1px solid var(--gold);border-radius:10px;padding:16px 20px;margin-top:18px;text-align:center;display:none;}
+.score-box .num{font-family:'Space Mono',monospace;font-size:30px;color:var(--gold-soft);}
+
+textarea{
+  width:100%;min-height:150px;background:var(--ink-3);border:1px solid var(--line);
+  border-radius:10px;padding:14px;color:var(--paper);font-family:'Noto Sans',sans-serif;
+  font-size:15px;resize:vertical;margin-bottom:10px;
+}
+.wordcount{font-size:12.5px;color:var(--paper-dim);margin-bottom:14px;}
+.model-box{background:var(--ink-3);border-right:3px solid var(--ok);border-radius:10px;padding:16px 18px;margin-top:14px;display:none;}
+.model-box h4{margin:0 0 8px;color:var(--ok);font-size:14px;}
+.criteria{list-style:none;padding:0;margin:10px 0;}
+.criteria li{font-size:13.5px;color:var(--paper-dim);padding:4px 0;}
+.criteria li:before{content:"✓ ";color:var(--gold);}
+
+.playbar{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
+.footer-note{text-align:center;color:var(--paper-dim);font-size:12px;margin-top:40px;}
+@media(max-width:640px){.card{padding:18px;}.brand h1{font-size:21px;}}
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <div class="top">
+    <div class="brand">
+      <div class="seal">TCF</div>
+      <div>
+        <h1>بوابة المراجعة ديال TCF Canada</h1>
+        <p>من A0 حتى B2 · الفهم والتعبير الشفوي والكتابي · بالدارجة والفرنسية</p>
+      </div>
+    </div>
+    <div class="progress-pill mono" id="globalProgress">0 / 20 تمرين خدمتي</div>
+  </div>
+
+  <div class="passport" id="levelTabs"></div>
+  <div class="skills" id="skillTabs"></div>
+  <div id="content"></div>
+
+  <p class="footer-note">صايبها ليك: كل تمرين كتلقى الجواب والتصحيح فالأخير · التقدم ديالك كيتسجل أوتوماتيكيا فهاد المتصفح</p>
+</div>
+
+<script>
+/* ===================== DATA ===================== */
+const LEVELS = ["A0","A1","A2","B1","B2"];
+const LEVEL_LABELS = {A0:"بداية",A1:"مبتدئ",A2:"مبتدئ+",B1:"متوسط",B2:"متوسط عالي"};
+const SKILLS = [
+  {id:"co", ar:"الفهم الشفوي", fr:"Compréhension orale", icon:"🎧"},
+  {id:"ce", ar:"الفهم الكتابي", fr:"Compréhension écrite", icon:"📖"},
+  {id:"ee", ar:"التعبير الكتابي", fr:"Expression écrite", icon:"✍️"},
+  {id:"eo", ar:"التعبير الشفوي", fr:"Expression orale", icon:"🗣️"}
+];
+
+const CONTENT = {
+A0:{
+ co:{
+  title:"عند التعارف",
+  instr:"كبس على 'شغل التسجيل' وسمع مزيان (غادي يتقرا ليك بالفرنسية). من بعد جاوب على الأسئلة. تقدر تسمعها بزاف ديال المرات.",
+  transcript:"Bonjour ! Je m'appelle Fatima. J'ai vingt-cinq ans. J'habite à Rabat, au Maroc. Je suis étudiante. Et vous ? — Bonjour Fatima, moi c'est Karim. J'ai trente ans. J'habite à Casablanca. Je suis professeur.",
+  questions:[
+   {q:"Comment s'appelle la première personne ?",opts:["Karim","Fatima","Amina","Sara"],c:1,ex:"فالبداية كتقول 'Je m'appelle Fatima'."},
+   {q:"Quel âge a Fatima ?",opts:["20 ans","25 ans","30 ans","35 ans"],c:1,ex:"'J'ai vingt-cinq ans' = عندها 25 عام."},
+   {q:"Où habite Karim ?",opts:["Rabat","Salé","Casablanca","Fès"],c:2,ex:"Karim كيقول 'J'habite à Casablanca'."},
+   {q:"Quelle est la profession de Karim ?",opts:["Étudiant","Médecin","Professeur","Ingénieur"],c:2,ex:"'Je suis professeur' = أستاذ."}
+  ]
+ },
+ ce:{
+  title:"يوم عادي ديال يوسف",
+  instr:"قرا النص بالفرنسية مزيان، من بعد جاوب على الأسئلة.",
+  passage:"Je m'appelle Youssef. Chaque matin, je me réveille à sept heures. Je prends le petit-déjeuner avec ma famille. Ensuite, je vais au travail en bus. Le soir, je rentre à la maison à six heures.",
+  questions:[
+   {q:"À quelle heure Youssef se réveille-t-il ?",opts:["6h","7h","8h","9h"],c:1,ex:"'je me réveille à sept heures'."},
+   {q:"Avec qui prend-il le petit-déjeuner ?",opts:["Seul","Ses amis","Sa famille","Ses collègues"],c:2,ex:"'avec ma famille'."},
+   {q:"Comment va-t-il au travail ?",opts:["À pied","En voiture","En bus","En vélo"],c:2,ex:"'je vais au travail en bus'."},
+   {q:"À quelle heure rentre-t-il le soir ?",opts:["5h","6h","7h","8h"],c:1,ex:"'je rentre à la maison à six heures'."}
+  ]
+ },
+ ee:{
+  title:"عرّف براسك",
+  instr:"كتب نص قصير (30-40 كلمة) تعرف فيه براسك: سميتك، عمرك، المدينة، الخدمة ديالك.",
+  criteria:["استعمل الفعل 'être' و 'avoir' فالحاضر","بدا بـ Je m'appelle...","عطي جملة على الشي لي كتحب"],
+  model:"Je m'appelle Amine. J'ai vingt-huit ans. J'habite à Salé. Je suis infirmier. J'aime le football et la lecture. Le week-end, je passe du temps avec ma famille."
+ },
+ eo:{
+  title:"عرّف بالعائلة ديالك",
+  instr:"تحضر دقيقة وحدة، من بعد تكلم بصوت عالي على العائلة ديالك (2-3 جمل). تقدر تسمع النموذج للمقارنة.",
+  criteria:["سمي أعضاء العائلة","عطي المهنة ديال حد منهم","تكلم بجمل بسيطة وواضحة"],
+  model:"Dans ma famille, nous sommes cinq personnes : mon père, ma mère, mon frère, ma sœur et moi. Mon père est commerçant et ma mère est femme au foyer. Mon frère est étudiant à l'université."
+ }
+},
+A1:{
+ co:{
+  title:"فالمخبزة",
+  instr:"سمع الحوار، من بعد جاوب.",
+  transcript:"Bonjour, je voudrais deux baguettes et trois croissants, s'il vous plaît. — Voilà madame, ça fait six euros cinquante. Vous voulez autre chose ? — Non merci, c'est tout. — Bonne journée ! — Merci, au revoir !",
+  questions:[
+   {q:"Qu'est-ce que la cliente achète ?",opts:["Du pain et des croissants","Des gâteaux","Du fromage","Des fruits"],c:0,ex:"'deux baguettes et trois croissants'."},
+   {q:"Combien ça coûte ?",opts:["5,50€","6,50€","7,50€","6€"],c:1,ex:"'ça fait six euros cinquante'."},
+   {q:"Où se passe la scène ?",opts:["Au marché","À la boulangerie","Au restaurant","Au supermarché"],c:1,ex:"كاين الكلام على baguettes و croissants = مخبزة."},
+   {q:"La cliente veut-elle autre chose ?",opts:["Oui","Non"],c:1,ex:"'Non merci, c'est tout'."}
+  ]
+ },
+ ce:{
+  title:"برنامج نهاية الأسبوع",
+  instr:"قرا النص وجاوب.",
+  passage:"Ce week-end, il va faire beau à Montréal. Samedi, je vais me promener dans le parc avec mes enfants. Dimanche, je vais visiter le musée avec ma femme. Le soir, nous allons dîner au restaurant.",
+  questions:[
+   {q:"Quel temps va-t-il faire ce week-end ?",opts:["Pluvieux","Beau","Neigeux","Nuageux"],c:1,ex:"'il va faire beau'."},
+   {q:"Que fait-il samedi ?",opts:["Il travaille","Il se promène au parc","Il visite un musée","Il reste à la maison"],c:1,ex:"'je vais me promener dans le parc'."},
+   {q:"Avec qui visite-t-il le musée ?",opts:["Ses enfants","Sa femme","Ses amis","Seul"],c:1,ex:"'je vais visiter le musée avec ma femme'."},
+   {q:"Que font-ils le soir ?",opts:["Ils regardent la télé","Ils dînent au restaurant","Ils dorment tôt","Ils font du sport"],c:1,ex:"'nous allons dîner au restaurant'."}
+  ]
+ },
+ ee:{
+  title:"دعوة لعيد الميلاد",
+  instr:"كتب رسالة قصيرة لصاحبك تعزمو على عيد الميلاد ديالك (40-60 كلمة).",
+  criteria:["استعمل صيغة الدعوة (Je t'invite / Viens...)","حدد المكان والوقت","سلام فالبداية والنهاية"],
+  model:"Salut Sofia, j'organise une petite fête pour mon anniversaire samedi prochain à 18h, chez moi à Rabat. J'espère que tu pourras venir ! Il y aura de la musique et un bon gâteau. Réponds-moi vite. À bientôt, Amine."
+ },
+ eo:{
+  title:"وصف المدينة ديالك",
+  instr:"تحضر دقيقة، من بعد وصف المدينة ديالك (1-2 دقيقة).",
+  criteria:["سمي المدينة والبلاد","وصف مكان واحد مشهور فيها","عطي رايك (كتعجبك ولا لا ولاش)"],
+  model:"Je viens de Salé, une ville au Maroc, près de Rabat. C'est une ville historique avec une belle médina. J'aime beaucoup ma ville parce qu'elle est calme et proche de la mer."
+ }
+},
+A2:{
+ co:{
+  title:"مكالمة على سفرية",
+  instr:"سمع الحوار، من بعد جاوب.",
+  transcript:"Allô, comment s'est passé ton voyage à Paris ? — C'était fantastique ! J'ai visité la Tour Eiffel et le Louvre. Il a fait un peu froid mais le soleil était là. — Tu es resté combien de temps ? — Une semaine, du 3 au 10 juillet. — Génial, tu as des photos ? — Oui, je te les enverrai ce soir.",
+  questions:[
+   {q:"Où la personne est-elle allée ?",opts:["À Londres","À Paris","À Rome","À Madrid"],c:1,ex:"'ton voyage à Paris'."},
+   {q:"Quel temps a-t-il fait ?",opts:["Très chaud","Pluvieux","Un peu froid","Neigeux"],c:2,ex:"'il a fait un peu froid'."},
+   {q:"Combien de temps est-elle restée ?",opts:["3 jours","1 semaine","2 semaines","1 mois"],c:1,ex:"'du 3 au 10 juillet' = semana."},
+   {q:"Qu'est-ce qu'elle va envoyer ce soir ?",opts:["Un cadeau","Des photos","Une lettre","De l'argent"],c:1,ex:"'je te les enverrai ce soir' (les photos)."}
+  ]
+ },
+ ce:{
+  title:"الهجرة نحو كندا",
+  instr:"قرا المقال وجاوب.",
+  passage:"De plus en plus de Marocains choisissent d'immigrer au Canada chaque année. Ils apprécient la qualité de vie, le système de santé gratuit et les opportunités de travail. Cependant, le climat froid et la distance avec la famille restent des défis importants pour les nouveaux arrivants.",
+  questions:[
+   {q:"Que font de plus en plus de Marocains ?",opts:["Ils voyagent en Europe","Ils immigrent au Canada","Ils étudient en France","Ils restent au Maroc"],c:1,ex:"'choisissent d'immigrer au Canada'."},
+   {q:"Qu'apprécient-ils au Canada ?",opts:["Le climat chaud","La qualité de vie et la santé gratuite","La cuisine","Les prix bas"],c:1,ex:"'la qualité de vie, le système de santé gratuit'."},
+   {q:"Quel est un défi mentionné ?",opts:["La langue anglaise","Le climat froid","Le coût des billets","Les visas"],c:1,ex:"'le climat froid... restent des défis'."},
+   {q:"Quel autre défi est cité ?",opts:["La distance avec la famille","Le manque de travail","La nourriture","Le sport"],c:0,ex:"'la distance avec la famille'."}
+  ]
+ },
+ ee:{
+  title:"حكي على سفرية",
+  instr:"حكي على سفرية درتيها (60-80 كلمة)، استعمل الماضي (passé composé).",
+  criteria:["passé composé صحيح (j'ai visité, je suis allé...)","رتب الأحداث بالترتيب","عطي رأيك فالأخير"],
+  model:"L'été dernier, je suis allé à Marrakech avec ma famille. Nous avons visité la place Jemaa el-Fna et les jardins Majorelle. Il a fait très chaud, mais nous avons beaucoup aimé la ville. Le soir, nous avons mangé dans un restaurant traditionnel. C'était un voyage inoubliable."
+ },
+ eo:{
+  title:"تجربة شخصية مهمة",
+  instr:"تحضر دقيقتين، من بعد حكي على تجربة مهمة فحياتك (2 دقائق).",
+  criteria:["استعمل الماضي","وصف المشاعر ديالك","خلي حكايتك منظمة (بداية، وسط، نهاية)"],
+  model:"Il y a deux ans, j'ai passé mon premier entretien d'embauche. J'étais très nerveux, mais tout s'est bien passé. J'ai obtenu le poste et c'était un moment très important pour moi. Cette expérience m'a donné confiance en moi."
+ }
+},
+B1:{
+ co:{
+  title:"تقرير على التوازن بين الخدمة والحياة",
+  instr:"سمع التقرير، من بعد جاوب.",
+  transcript:"Selon une étude récente, de plus en plus d'employés canadiens demandent plus de flexibilité au travail. Le télétravail, deux ou trois jours par semaine, est devenu la norme dans plusieurs entreprises. Les experts affirment que cette flexibilité améliore la productivité et réduit le stress, mais certains employeurs craignent une baisse de la collaboration entre collègues.",
+  questions:[
+   {q:"Que demandent de plus en plus d'employés ?",opts:["Un salaire plus élevé","Plus de flexibilité","Moins d'heures de travail","Plus de vacances"],c:1,ex:"'demandent plus de flexibilité au travail'."},
+   {q:"Combien de jours de télétravail sont mentionnés ?",opts:["1 jour","2 ou 3 jours","5 jours","Aucun"],c:1,ex:"'deux ou trois jours par semaine'."},
+   {q:"Quel avantage citent les experts ?",opts:["Plus de productivité et moins de stress","Plus de salaire","Plus de vacances","Moins de responsabilités"],c:0,ex:"'améliore la productivité et réduit le stress'."},
+   {q:"Quelle est la crainte de certains employeurs ?",opts:["La baisse de la collaboration","La perte d'argent","Le manque de bureaux","La météo"],c:0,ex:"'craignent une baisse de la collaboration'."}
+  ]
+ },
+ ce:{
+  title:"العمل عن بعد: مزايا وعيوب",
+  instr:"قرا المقال وجاوب.",
+  passage:"Le télétravail présente de nombreux avantages : il permet d'économiser du temps de transport, offre plus de flexibilité et améliore souvent l'équilibre entre vie professionnelle et vie personnelle. Cependant, il comporte aussi des inconvénients : isolement social, difficulté à séparer travail et vie privée, et parfois une communication moins efficace avec les collègues. Certaines entreprises adoptent donc un modèle hybride, combinant présence au bureau et travail à domicile.",
+  questions:[
+   {q:"Quel est un avantage du télétravail ?",opts:["Plus de réunions","Économie de temps de transport","Plus de bureaux","Moins de flexibilité"],c:1,ex:"'permet d'économiser du temps de transport'."},
+   {q:"Quel inconvénient est mentionné ?",opts:["L'isolement social","Le manque d'ordinateurs","Le prix élevé","Le bruit"],c:0,ex:"'isolement social'."},
+   {q:"Que choisissent certaines entreprises ?",opts:["Le télétravail total","Le modèle hybride","Le retour total au bureau","Rien de spécial"],c:1,ex:"'un modèle hybride'."},
+   {q:"Quelle difficulté est citée concernant la vie privée ?",opts:["Séparer travail et vie privée","Trouver un logement","Payer le loyer","Voyager"],c:0,ex:"'difficulté à séparer travail et vie privée'."}
+  ]
+ },
+ ee:{
+  title:"رأيك فالعمل عن بعد",
+  instr:"عطي رأيك: واش العمل عن بعد مفيد ولا لا؟ (120-150 كلمة، استعمل مواصلات منطقية زعما 'cependant', 'de plus', 'en revanche').",
+  criteria:["مقدمة، جسم، خلاصة","استعمل موصلات منطقية","دعم رأيك بمثال"],
+  model:"À mon avis, le télétravail est globalement bénéfique. Tout d'abord, il permet aux employés d'économiser du temps et de l'argent en évitant les longs trajets. De plus, il offre une meilleure flexibilité pour organiser sa journée. Cependant, il présente aussi des limites : certains employés se sentent isolés et manquent de contact humain avec leurs collègues. En revanche, un modèle hybride, combinant télétravail et présence au bureau, semble être la meilleure solution. En conclusion, je pense que le télétravail est une avancée positive, à condition d'être bien organisé."
+ },
+ eo:{
+  title:"موضوع مجتمعي: رأيك مع الحجج",
+  instr:"اختار موضوع (مثلا: التكنولوجيا فحياة الشباب) وعطي رأيك مع حجج مع وضد (2-3 دقائق).",
+  criteria:["قدم الموضوع بوضوح","عطي حجة مع وحجة ضد","خلص برأيك الشخصي"],
+  model:"Je pense que la technologie a beaucoup changé la vie des jeunes. D'un côté, elle facilite la communication et l'accès à l'information. D'un autre côté, elle peut créer une dépendance et réduire les interactions sociales réelles. Personnellement, je pense qu'il faut trouver un équilibre entre l'utilisation de la technologie et la vie sociale réelle."
+ }
+},
+B2:{
+ co:{
+  title:"مناظرة على سياسة الهجرة",
+  instr:"سمع المقتطف من مناظرة، من بعد جاوب.",
+  transcript:"Le gouvernement a récemment annoncé une révision de sa politique d'immigration afin de mieux répondre aux besoins du marché du travail. Certains experts saluent cette décision, estimant qu'elle permettra d'attirer davantage de travailleurs qualifiés. D'autres, en revanche, s'inquiètent des conséquences sur les délais de traitement des dossiers, déjà jugés trop longs par de nombreux candidats. Le débat reste donc ouvert quant à l'efficacité réelle de cette réforme.",
+  questions:[
+   {q:"Qu'a annoncé le gouvernement ?",opts:["Une révision de la politique d'immigration","Une baisse des impôts","Une nouvelle loi sur le travail","Un plan de santé"],c:0,ex:"'une révision de sa politique d'immigration'."},
+   {q:"Pourquoi certains experts saluent-ils la décision ?",opts:["Elle attirera plus de travailleurs qualifiés","Elle réduira les impôts","Elle simplifiera les visas touristiques","Elle n'a aucun effet"],c:0,ex:"'attirer davantage de travailleurs qualifiés'."},
+   {q:"Quelle est l'inquiétude évoquée ?",opts:["Les délais de traitement des dossiers","Le coût des billets d'avion","La météo","Le manque de logements"],c:0,ex:"'les délais de traitement des dossiers'."},
+   {q:"Quel est le ton général du passage ?",opts:["Un débat ouvert avec avis partagés","Une critique totale","Un éloge sans réserve","Un sujet non lié à l'immigration"],c:0,ex:"'Le débat reste donc ouvert'."}
+  ]
+ },
+ ce:{
+  title:"تغييرات فسياسة الهجرة الكندية",
+  instr:"قرا المقال وجاوب.",
+  passage:"Le Canada a introduit de nouvelles mesures visant à faciliter l'intégration des immigrants francophones hors Québec. Ces mesures comprennent des points supplémentaires dans le système Entrée express pour les candidats maîtrisant le français, ainsi que des programmes de soutien à l'installation dans les communautés francophones. L'objectif est double : renforcer la vitalité du français dans les provinces majoritairement anglophones et répondre à la pénurie de main-d'œuvre dans certains secteurs. Néanmoins, plusieurs organismes rappellent que l'accès au logement et à l'emploi reste un défi majeur pour les nouveaux arrivants, quelle que soit leur langue.",
+  questions:[
+   {q:"Quel est l'objectif principal des nouvelles mesures ?",opts:["Faciliter l'intégration des immigrants francophones hors Québec","Réduire l'immigration totale","Supprimer le système Entrée express","Favoriser uniquement les anglophones"],c:0,ex:"'faciliter l'intégration des immigrants francophones hors Québec'."},
+   {q:"Que reçoivent les candidats maîtrisant le français ?",opts:["Des points supplémentaires dans Entrée express","Un visa automatique","Un logement gratuit","Une réduction d'impôts"],c:0,ex:"'des points supplémentaires dans le système Entrée express'."},
+   {q:"Quel double objectif est mentionné ?",opts:["Renforcer le français et répondre à la pénurie de main-d'œuvre","Réduire les coûts et augmenter le tourisme","Améliorer le climat et la santé","Aucun objectif clair"],c:0,ex:"'renforcer la vitalité du français... et répondre à la pénurie de main-d'œuvre'."},
+   {q:"Quel défi reste présent selon le texte ?",opts:["L'accès au logement et à l'emploi","Le climat froid uniquement","Le manque d'écoles","Le coût des billets d'avion"],c:0,ex:"'l'accès au logement et à l'emploi reste un défi majeur'."}
+  ]
+ },
+ ee:{
+  title:"نص حجاجي مركب",
+  instr:"كتب نص حجاجي (200-250 كلمة) على موضوع مركب: 'واش خاص الحكومات تسهل ولا تقيد الهجرة؟'. خاصك مقدمة، تطوير بحجج مع وضد، وخلاصة.",
+  criteria:["مقدمة توضح الإشكالية","حجج متنوعة مع أمثلة","استعمال subjonctif ومواصلات معقدة","خلاصة شخصية واضحة"],
+  model:"L'immigration est un sujet complexe qui suscite de nombreux débats dans les sociétés contemporaines. D'une part, faciliter l'immigration permet de répondre aux besoins économiques, notamment dans les secteurs en pénurie de main-d'œuvre, et enrichit culturellement les sociétés d'accueil. Il est essentiel que les gouvernements mettent en place des politiques d'intégration efficaces pour que les nouveaux arrivants puissent contribuer pleinement à la société. D'autre part, certains estiment qu'il faille encadrer davantage l'immigration afin d'éviter une pression excessive sur les infrastructures publiques, comme le logement ou la santé. En conclusion, je pense qu'une immigration bien régulée, accompagnée de mesures d'intégration solides, est bénéfique tant pour les immigrants que pour la société d'accueil."
+ },
+ eo:{
+  title:"دافع على رأيك أمام حجة مخالفة",
+  instr:"شخص كيقول ليك: 'الهجرة كتخلق مشاكل اكثر ملي كتحل'. دافع على رأيك المخالف (3 دقائق)، بحجج قوية.",
+  criteria:["اعترف بالحجة المخالفة قبل ما ترد عليها","عطي حجج مبنية على أمثلة","حافظ على نبرة محترمة ومقنعة"],
+  model:"Je comprends votre point de vue, mais je ne suis pas entièrement d'accord. Il est vrai que l'immigration peut poser certains défis, notamment en matière d'intégration. Cependant, de nombreuses études montrent que l'immigration contribue positivement à l'économie, en comblant les pénuries de main-d'œuvre et en stimulant l'innovation. De plus, la diversité culturelle enrichit la société dans son ensemble. Il me semble donc que les avantages de l'immigration, lorsqu'elle est bien accompagnée, dépassent largement les inconvénients."
+ }
+}
+};
+
+/* ===================== STATE ===================== */
+let currentLevel = "A0";
+let currentSkill = "co";
+let progress = {}; // key: "A0-co" -> {done:true, score, total}
+
+/* ===================== STORAGE ===================== */
+async function loadProgress(){
+  try{
+    const res = await window.storage.get('tcf-progress', false);
+    if(res && res.value) progress = JSON.parse(res.value);
+  }catch(e){ progress = {}; }
+  render();
+}
+async function saveProgress(){
+  try{ await window.storage.set('tcf-progress', JSON.stringify(progress), false); }catch(e){}
+}
+
+/* ===================== RENDER SHELL ===================== */
+function renderLevelTabs(){
+  const el = document.getElementById('levelTabs');
+  el.innerHTML = LEVELS.map(lv=>{
+    const doneCount = SKILLS.filter(s=>progress[lv+'-'+s.id] && progress[lv+'-'+s.id].done).length;
+    const stamp = doneCount===4 ? `<div class="stamp">✓</div>` : '';
+    return `<div class="pp-tab ${lv===currentLevel?'active':''}" data-level="${lv}">
+      ${stamp}
+      <div class="code mono">${lv}</div>
+      <div class="lbl">${LEVEL_LABELS[lv]}</div>
+    </div>`;
+  }).join('');
+  el.querySelectorAll('.pp-tab').forEach(t=>t.onclick=()=>{currentLevel=t.dataset.level; render();});
+}
+
+function renderSkillTabs(){
+  const el = document.getElementById('skillTabs');
+  el.innerHTML = SKILLS.map(s=>{
+    const done = progress[currentLevel+'-'+s.id] && progress[currentLevel+'-'+s.id].done;
+    return `<button class="sk-tab ${s.id===currentSkill?'active':''} ${done?'done':''}" data-skill="${s.id}">
+      <span class="badge"></span>${s.icon} ${s.ar} <span class="fr" style="opacity:.7;font-size:12px;">(${s.fr})</span>
+    </button>`;
+  }).join('');
+  el.querySelectorAll('.sk-tab').forEach(t=>t.onclick=()=>{currentSkill=t.dataset.skill; render();});
+}
+
+function updateGlobalProgress(){
+  let done=0;
+  LEVELS.forEach(lv=>SKILLS.forEach(s=>{ if(progress[lv+'-'+s.id] && progress[lv+'-'+s.id].done) done++; }));
+  document.getElementById('globalProgress').textContent = `${done} / 20 تمرين خدمتي`;
+}
+
+/* ===================== RENDER CONTENT ===================== */
+function render(){
+  renderLevelTabs();
+  renderSkillTabs();
+  updateGlobalProgress();
+  const data = CONTENT[currentLevel][currentSkill];
+  const box = document.getElementById('content');
+  if(currentSkill==='co' || currentSkill==='ce'){
+    box.innerHTML = renderQuiz(data, currentSkill);
+    attachQuizEvents(data);
+  } else {
+    box.innerHTML = renderProduction(data, currentSkill);
+    attachProductionEvents(data);
+  }
+}
+
+function renderQuiz(data, skill){
+  const isCO = skill==='co';
+  return `
+  <div class="card">
+    <h2>${data.title}</h2>
+    <div class="sub">${SKILLS.find(s=>s.id===skill).fr} · ${currentLevel}</div>
+    <div class="instr">${data.instr}</div>
+    ${isCO ? `
+      <div class="playbar">
+        <button class="btn" id="playBtn">▶ شغل التسجيل</button>
+        <button class="btn secondary" id="toggleTranscript">إظهار/إخفاء النص</button>
+      </div>
+      <div class="transcript-box fr" id="transcriptBox">${data.transcript}</div>
+    ` : `<div class="passage fr">${data.passage}</div>`}
+    <div id="questions">
+      ${data.questions.map((q,qi)=>`
+        <div class="q" data-qi="${qi}">
+          <div class="qtext fr">${qi+1}. ${q.q}</div>
+          ${q.opts.map((o,oi)=>`
+            <label class="opt fr" data-oi="${oi}">
+              <input type="radio" name="q${qi}" value="${oi}"> ${o}
+            </label>`).join('')}
+          <div class="explain" id="ex${qi}">💡 ${q.ex}</div>
+        </div>
+      `).join('')}
+    </div>
+    <button class="btn" id="checkBtn">صحح الإجابات</button>
+    <div class="score-box" id="scoreBox">
+      <div class="num" id="scoreNum">0/0</div>
+      <div>النتيجة ديالك</div>
+    </div>
+  </div>`;
+}
+
+function renderProduction(data, skill){
+  const isEO = skill==='eo';
+  return `
+  <div class="card">
+    <h2>${data.title}</h2>
+    <div class="sub">${SKILLS.find(s=>s.id===skill).fr} · ${currentLevel}</div>
+    <div class="instr">${data.instr}</div>
+    <ul class="criteria">${data.criteria.map(c=>`<li>${c}</li>`).join('')}</ul>
+    ${isEO ? `
+      <div class="playbar">
+        <button class="btn secondary" id="prepBtn">⏱ ابدا التحضير (60 ثانية)</button>
+        <span id="timerLabel" class="mono" style="color:var(--gold-soft);"></span>
+      </div>
+      <p style="font-size:13.5px;color:var(--paper-dim);">قول جوابك بصوت عالي (وحدك ولا سجل راسك)، من بعد قارن مع النموذج.</p>
+    ` : `
+      <textarea id="userText" placeholder="اكتب جوابك هنا بالفرنسية..."></textarea>
+      <div class="wordcount" id="wc">0 كلمة</div>
+    `}
+    <button class="btn" id="revealBtn">${isEO ? 'استمع/شوف النموذج' : 'شوف نموذج التصحيح'}</button>
+    <div class="model-box" id="modelBox">
+      <h4>✔ نموذج مقترح (Modèle de réponse)</h4>
+      <div class="fr">${data.model}</div>
+      ${isEO ? `<button class="btn secondary" style="margin-top:12px;" id="playModel">▶ سمع النموذج</button>` : ''}
+    </div>
+  </div>`;
+}
+
+/* ===================== EVENTS: QUIZ ===================== */
+function attachQuizEvents(data){
+  const playBtn = document.getElementById('playBtn');
+  if(playBtn){
+    playBtn.onclick = ()=>{
+      speak(data.transcript);
+    };
+  }
+  const toggleT = document.getElementById('toggleTranscript');
+  if(toggleT){
+    toggleT.onclick = ()=>{
+      const box = document.getElementById('transcriptBox');
+      box.style.display = box.style.display==='block' ? 'none' : 'block';
+    };
+  }
+  document.getElementById('checkBtn').onclick = ()=>{
+    let score = 0;
+    data.questions.forEach((q,qi)=>{
+      const selected = document.querySelector(`input[name="q${qi}"]:checked`);
+      const opts = document.querySelectorAll(`.q[data-qi="${qi}"] .opt`);
+      opts.forEach((o,oi)=>{
+        if(oi===q.c) o.classList.add('correct');
+        else if(selected && parseInt(selected.value)===oi) o.classList.add('wrong');
+      });
+      document.getElementById('ex'+qi).style.display='block';
+      if(selected && parseInt(selected.value)===q.c) score++;
+    });
+    document.getElementById('scoreBox').style.display='block';
+    document.getElementById('scoreNum').textContent = `${score}/${data.questions.length}`;
+    progress[currentLevel+'-'+currentSkill] = {done:true, score, total:data.questions.length};
+    saveProgress();
+    renderLevelTabs(); renderSkillTabs(); updateGlobalProgress();
+  };
+}
+
+/* ===================== EVENTS: PRODUCTION ===================== */
+function attachProductionEvents(data){
+  const ta = document.getElementById('userText');
+  if(ta){
+    ta.oninput = ()=>{
+      const words = ta.value.trim().split(/\s+/).filter(Boolean).length;
+      document.getElementById('wc').textContent = `${words} كلمة`;
+    };
+  }
+  const prepBtn = document.getElementById('prepBtn');
+  if(prepBtn){
+    prepBtn.onclick = ()=>{
+      let t = 60;
+      prepBtn.disabled = true;
+      const lbl = document.getElementById('timerLabel');
+      lbl.textContent = t + ' s';
+      const iv = setInterval(()=>{
+        t--;
+        lbl.textContent = t + ' s';
+        if(t<=0){ clearInterval(iv); lbl.textContent = 'الوقت سالا — دابا تكلم!'; prepBtn.disabled=false; }
+      },1000);
+    };
+  }
+  document.getElementById('revealBtn').onclick = ()=>{
+    document.getElementById('modelBox').style.display='block';
+    progress[currentLevel+'-'+currentSkill] = {done:true};
+    saveProgress();
+    renderLevelTabs(); renderSkillTabs(); updateGlobalProgress();
+    const pm = document.getElementById('playModel');
+    if(pm) pm.onclick = ()=> speak(data.model);
+  };
+}
+
+/* ===================== SPEECH ===================== */
+function speak(text){
+  if(!('speechSynthesis' in window)){ alert('المتصفح ديالك ما كيدعمش قراءة الصوت.'); return; }
+  window.speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'fr-FR';
+  u.rate = 0.92;
+  const voices = window.speechSynthesis.getVoices();
+  const frVoice = voices.find(v=>v.lang && v.lang.startsWith('fr'));
+  if(frVoice) u.voice = frVoice;
+  window.speechSynthesis.speak(u);
+}
+window.speechSynthesis && window.speechSynthesis.getVoices();
+
+/* ===================== INIT ===================== */
+loadProgress();
+</script>
+</body>
+</html>
