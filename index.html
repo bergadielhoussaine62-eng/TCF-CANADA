@@ -308,9 +308,17 @@ B2:{
 let currentLevel = "A0";
 let currentSkill = "co";
 let currentQIndex = 0;
+const SPEAK_TARGET = ["1-2 دقائق","3-4 دقائق","3-4.5 دقائق"];
+
 let currentTask = 0;
 let guideMode = false;
 let state = { answers:{}, taskViewed:{} };
+/* voice + AI conversation state */
+let mediaRecorder=null, audioChunks=[], recognition=null, isRecording=false;
+let currentTranscript = '';
+let recordStartTime=0, timerInterval=null;
+let chatMode=false, chatHistory=[], chatTurns=0;
+const MAX_CHAT_TURNS = 3;
 
 /* ===================== STORAGE ===================== */
 async function loadState(){
@@ -563,7 +571,22 @@ function renderTaskScreen(){
         <button class="btn secondary" id="prepBtn">⏱ ابدا التحضير (${t.prep} ثانية)</button>
         <span id="timerLabel" class="mono" style="color:var(--gold-soft);"></span>
       </div>` : `<p style="font-size:13px;color:var(--paper-dim);">هاد المهمة بلا تحضير — جاوب مباشرة بحال الامتحان الحقيقي.</p>`}
-      <p style="font-size:13.5px;color:var(--paper-dim);">قول جوابك بصوت عالي، من بعد قارن مع النموذج.</p>
+      <div class="voice-panel">
+        <div class="playbar">
+          <button class="btn" id="recordBtn">🎙 ابدا التسجيل</button>
+          <span id="recTimer" class="mono" style="color:var(--gold-soft);">00:00</span>
+          <span style="font-size:12px;color:var(--paper-dim);">الهدف: ${SPEAK_TARGET[currentTask]||'1-2 دقائق'}</span>
+        </div>
+        <div class="transcript-box fr" id="liveTranscript"></div>
+        <div id="recordedAudioWrap" style="display:none;margin:10px 0;"><audio id="recordedAudio" controls style="width:100%;"></audio></div>
+        <div class="playbar">
+          <button class="btn secondary" id="aiCheckBtn" style="display:none;">🤖 صحح ليا الكلام ديالي</button>
+          <button class="btn secondary" id="liveChatBtn">💬 محادثة مباشرة مع الذكاء الاصطناعي (بحال نهار الامتحان)</button>
+        </div>
+        <div id="chatLog" style="margin-top:10px;"></div>
+        <div class="model-box" id="aiFeedback" style="border-color:var(--gold);"></div>
+        <p style="font-size:12px;color:var(--paper-dim);margin-top:8px;">ملاحظة: التعرف على الصوت خدام مزيان فـ Chrome. خاصك تسمح للمتصفح بالميكروفون.</p>
+      </div>
     ` : `
       <textarea id="userText" placeholder="اكتب جوابك هنا بالفرنسية..."></textarea>
       <div class="wordcount" id="wc">0 كلمة</div>
@@ -639,6 +662,230 @@ function attachEvents(){
       const pm = document.getElementById('playModel');
       if(pm) pm.onclick = ()=> speak(CONTENT[currentLevel][currentSkill][currentTask].model);
     };
+    if(currentSkill==='eo'){
+      const recordBtn = document.getElementById('recordBtn');
+      if(recordBtn) recordBtn.onclick = toggleRecording;
+      const aiCheckBtn = document.getElementById('aiCheckBtn');
+      if(aiCheckBtn) aiCheckBtn.onclick = evaluateWithAI;
+      const liveChatBtn = document.getElementById('liveChatBtn');
+      if(liveChatBtn) liveChatBtn.onclick = startChat;
+    }
+  }
+}
+
+/* ===================== VOICE RECORDING (single answer) ===================== */
+async function toggleRecording(){
+  const btn = document.getElementById('recordBtn');
+  if(!isRecording){
+    try{
+      const stream = await navigator.mediaDevices.getUserMedia({audio:true});
+      audioChunks = [];
+      mediaRecorder = new MediaRecorder(stream);
+      mediaRecorder.ondataavailable = e=>audioChunks.push(e.data);
+      mediaRecorder.onstop = ()=>{
+        const blob = new Blob(audioChunks,{type:'audio/webm'});
+        const url = URL.createObjectURL(blob);
+        const wrap = document.getElementById('recordedAudioWrap');
+        const audioEl = document.getElementById('recordedAudio');
+        if(wrap && audioEl){ audioEl.src = url; wrap.style.display='block'; }
+        stream.getTracks().forEach(tr=>tr.stop());
+      };
+      mediaRecorder.start();
+      currentTranscript = '';
+      startSpeechRecognition('liveTranscript', txt=>{ currentTranscript = txt; });
+      recordStartTime = Date.now();
+      const timerEl = document.getElementById('recTimer');
+      timerInterval = setInterval(()=>{
+        const sec = Math.floor((Date.now()-recordStartTime)/1000);
+        const m=String(Math.floor(sec/60)).padStart(2,'0'); const s=String(sec%60).padStart(2,'0');
+        if(timerEl) timerEl.textContent = `${m}:${s}`;
+      },500);
+      isRecording = true;
+      if(btn) btn.textContent = '⏹ وقف التسجيل';
+    }catch(e){
+      alert('ما قدرتش نوصل للميكروفون ديالك. تأكد من الإذن (Permission) فالمتصفح ديالك.');
+    }
+  } else {
+    if(mediaRecorder) mediaRecorder.stop();
+    if(recognition) recognition.stop();
+    clearInterval(timerInterval);
+    isRecording = false;
+    if(btn) btn.textContent = '🎙 سجل من جديد';
+    const aiBtn = document.getElementById('aiCheckBtn');
+    if(aiBtn && currentTranscript.trim().length>0) aiBtn.style.display='inline-block';
+  }
+}
+
+function startSpeechRecognition(boxId, onUpdate){
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const box = document.getElementById(boxId);
+  if(!SR){
+    if(box) box.textContent = '(المتصفح ديالك ما كيدعمش التعرف على الصوت مباشرة، جرب Chrome. الصوت مسجل بحالو وتقدر تسمعو من بعد.)';
+    return;
+  }
+  recognition = new SR();
+  recognition.lang = 'fr-FR'; recognition.continuous = true; recognition.interimResults = true;
+  let finalText = '';
+  recognition.onresult = (ev)=>{
+    let interim = '';
+    for(let i=ev.resultIndex;i<ev.results.length;i++){
+      const txt = ev.results[i][0].transcript;
+      if(ev.results[i].isFinal) finalText += txt + ' '; else interim += txt;
+    }
+    if(box) box.textContent = finalText + interim;
+    onUpdate(finalText);
+  };
+  recognition.onerror = ()=>{};
+  recognition.onend = ()=>{ if(isRecording || chatRecording){ try{ recognition.start(); }catch(e){} } };
+  recognition.start();
+}
+
+async function callClaude(messages, maxTokens){
+  const response = await fetch("https://api.anthropic.com/v1/messages",{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body: JSON.stringify({ model:"claude-sonnet-4-6", max_tokens: maxTokens||800, messages })
+  });
+  const data = await response.json();
+  return (data.content||[]).map(c=>c.text||'').join('\n');
+}
+
+async function evaluateWithAI(){
+  const box = document.getElementById('aiFeedback');
+  box.style.display = 'block';
+  box.innerHTML = '<h4>🤖 التقييم</h4><p class="fr" style="opacity:.7;">⏳ كيحلل الجواب ديالك...</p>';
+  const t = CONTENT[currentLevel][currentSkill][currentTask];
+  const prompt = `أنت أستاذ فرنسية خبير فتحضير امتحان TCF Canada. طالب فمستوى ${currentLevel} كان خاصو يجاوب شفهيا على هاد المهمة (${t.tag}):
+"${t.instr}"
+معايير التقييم: ${t.criteria.join('، ')}
+
+نص الجواب ديالو (منقول أوتوماتيكيا من الصوت للنص، يمكن يكون فيه أخطاء بسيطة ديال النقل):
+"${currentTranscript || '(ما وصلنيش نص واضح، قول للطالب يعاود يسجل فبلاصة هادية)'}"
+
+جاوبني بالدارجة المغربية بالحروف العربية، مختصر ومباشر، فيه:
+1. تقدير سريع: هل المستوى كيبان ليق بـ ${currentLevel}
+2. جوج نقط إيجابية
+3. جوج أو تلاتة ديال الأخطاء مع التصحيح الصحيح بالفرنسية
+4. نصيحة عملية وحدة باش يتحسن
+بلا مقدمات طويلة، ادخل مباشرة فالتقييم.`;
+  try{
+    const text = await callClaude([{role:"user", content: prompt}], 1000);
+    box.innerHTML = `<h4>🤖 التقييم ديال الذكاء الاصطناعي</h4><div class="fr" style="white-space:pre-line;">${text || 'ما قدرتش نجيب تقييم دابا، عاود المحاولة.'}</div>`;
+  }catch(e){
+    box.innerHTML = '<h4>🤖 التقييم</h4><p style="color:var(--bad);">وقع مشكل فالاتصال بالذكاء الاصطناعي. تأكد من الأنترنت ديالك وعاود المحاولة.</p>';
+  }
+}
+
+/* ===================== LIVE AI CONVERSATION ===================== */
+let chatRecording=false, chatMediaRecorder=null, chatRecognition=null, chatTranscript='', chatTimerInterval=null, chatRecordStart=0;
+
+async function startChat(){
+  chatMode = true; chatTurns = 0;
+  const t = CONTENT[currentLevel][currentSkill][currentTask];
+  chatHistory = [{role:"user", content:`أنت غادي تلعب دور المحاور فامتحان TCF Canada الشفهي، بحال ما كيوقع بالضبط نهار الامتحان. الوضعية ديال هاد المهمة: "${t.instr}". هضر غير بالفرنسية، بجمل قصيرة وطبيعية بحال محادثة حقيقية (سطر أو سطرين، ماشي مطولة). ابدا نتا بجملة ترحيب أو سؤال أول باش نبدا المحادثة. جاوب فقط بالفرنسية بلا أي تفسير بالعربية أو بالدارجة.`}];
+  const log = document.getElementById('chatLog');
+  log.innerHTML = '<p style="color:var(--paper-dim);font-size:13px;">⏳ الذكاء الاصطناعي كيبدا المحادثة...</p>';
+  await sendChatMessage();
+}
+
+async function sendChatMessage(){
+  try{
+    const text = await callClaude(chatHistory, 250) || "Pardon, pouvez-vous répéter ?";
+    chatHistory.push({role:"assistant", content:text});
+    speak(text);
+    renderChatLog();
+  }catch(e){
+    const log = document.getElementById('chatLog');
+    if(log) log.innerHTML += '<p style="color:var(--bad);">وقع مشكل فالاتصال بالذكاء الاصطناعي.</p>';
+  }
+}
+
+function renderChatLog(){
+  const log = document.getElementById('chatLog');
+  if(!log) return;
+  let html = '';
+  chatHistory.forEach((m,i)=>{
+    if(i===0) return;
+    if(m.role==='assistant'){
+      html += `<div style="background:var(--ink-3);border-radius:8px;padding:10px 14px;margin:8px 0;"><strong style="color:var(--gold-soft);">🤖</strong> <span class="fr">${m.content}</span></div>`;
+    } else {
+      html += `<div style="background:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:8px 0;"><strong style="color:var(--ok);">🎙 نتا</strong> <span class="fr">${m.content}</span></div>`;
+    }
+  });
+  const finished = chatTurns >= MAX_CHAT_TURNS;
+  if(!finished){
+    html += `<div class="playbar" style="margin-top:10px;">
+        <button class="btn" id="chatRecordBtn">🎙 جاوب بصوتك</button>
+        <span id="chatTimer" class="mono">00:00</span>
+      </div>
+      <div class="transcript-box fr" id="chatLiveTranscript" style="display:block;min-height:36px;"></div>`;
+  } else {
+    html += `<button class="btn secondary" id="endChatBtn" style="margin-top:10px;">✅ سالات المحادثة، عطيني تقييم شامل</button>`;
+  }
+  log.innerHTML = html;
+  if(!finished){
+    document.getElementById('chatRecordBtn').onclick = toggleChatRecording;
+  } else {
+    document.getElementById('endChatBtn').onclick = endChatEvaluation;
+  }
+}
+
+function toggleChatRecording(){
+  const btn = document.getElementById('chatRecordBtn');
+  if(!chatRecording){
+    navigator.mediaDevices.getUserMedia({audio:true}).then(stream=>{
+      chatMediaRecorder = new MediaRecorder(stream);
+      chatMediaRecorder.ondataavailable = ()=>{};
+      chatMediaRecorder.onstop = ()=> stream.getTracks().forEach(t=>t.stop());
+      chatMediaRecorder.start();
+      chatTranscript = '';
+      startSpeechRecognition('chatLiveTranscript', txt=>{ chatTranscript = txt; });
+      chatRecordStart = Date.now();
+      chatTimerInterval = setInterval(()=>{
+        const sec = Math.floor((Date.now()-chatRecordStart)/1000);
+        const m=String(Math.floor(sec/60)).padStart(2,'0'); const s=String(sec%60).padStart(2,'0');
+        const timerEl = document.getElementById('chatTimer'); if(timerEl) timerEl.textContent = `${m}:${s}`;
+      },500);
+      chatRecording = true;
+      btn.textContent = '⏹ وقف';
+    }).catch(()=> alert('ما قدرتش نوصل للميكروفون ديالك.'));
+  } else {
+    if(chatMediaRecorder) chatMediaRecorder.stop();
+    if(chatRecognition) chatRecognition.stop();
+    if(recognition) recognition.stop();
+    clearInterval(chatTimerInterval);
+    chatRecording = false;
+    chatTurns++;
+    const userMsg = chatTranscript.trim() || '(ما تسجلش صوت واضح)';
+    chatHistory.push({role:"user", content:userMsg});
+    const log = document.getElementById('chatLog');
+    if(log) log.innerHTML += '<p style="color:var(--paper-dim);font-size:12px;">⏳ كيرد عليك...</p>';
+    sendChatMessage();
+  }
+}
+
+async function endChatEvaluation(){
+  const log = document.getElementById('chatLog');
+  log.innerHTML += '<p style="color:var(--paper-dim);font-size:13px;">⏳ كيحضر التقييم الشامل ديال المحادثة...</p>';
+  const t = CONTENT[currentLevel][currentSkill][currentTask];
+  const convoText = chatHistory.slice(1).map(m=> (m.role==='assistant'?'المحاور: ':'أنا: ')+m.content).join('\n');
+  const prompt = `هادي محادثة كاملة ديال تمرين شفهي لامتحان TCF Canada (${t.tag}, مستوى ${currentLevel}). المعايير: ${t.criteria.join('، ')}.
+نص المحادثة:
+${convoText}
+
+عطيني تقييم شامل بالدارجة المغربية، مختصر ومباشر:
+1. تقدير عام على المستوى
+2. أهم 3 نقط إيجابية
+3. أهم 3 أخطاء مع التصحيح بالفرنسية
+4. نصيحتين عمليتين`;
+  try{
+    const text = await callClaude([{role:"user", content: prompt}], 1200);
+    const fb = document.getElementById('aiFeedback');
+    fb.style.display = 'block';
+    fb.innerHTML = `<h4>🤖 التقييم الشامل ديال المحادثة</h4><div class="fr" style="white-space:pre-line;">${text || 'ما قدرتش نجيب التقييم.'}</div>`;
+    chatMode = false;
+  }catch(e){
+    log.innerHTML += '<p style="color:var(--bad);">وقع مشكل فالتقييم.</p>';
   }
 }
 
