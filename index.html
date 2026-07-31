@@ -3,150 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بوابة TCF Canada — من A0 حتى B2</title>
+<title>بوابة TCF Canada — محاكاة الامتحان الحقيقي</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Noto+Sans+Arabic:wght@400;600;700&family=Noto+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#0F1D33;
-  --ink-2:#16294a;
-  --ink-3:#1e335a;
-  --paper:#F3EFE4;
-  --paper-dim:#c9c4b3;
-  --gold:#C9A227;
-  --gold-soft:#e8cf7a;
-  --maple:#C0453A;
-  --ok:#6E9B7B;
-  --bad:#c0453a;
+  --ink:#0F1D33; --ink-2:#16294a; --ink-3:#1e335a;
+  --paper:#F3EFE4; --paper-dim:#c9c4b3;
+  --gold:#C9A227; --gold-soft:#e8cf7a;
+  --maple:#C0453A; --ok:#6E9B7B; --bad:#c0453a;
   --line:rgba(243,239,228,0.14);
 }
 *{box-sizing:border-box;}
 html,body{margin:0;padding:0;}
 body{
-  background:
-    radial-gradient(circle at 12% 8%, rgba(201,162,39,0.10), transparent 40%),
-    radial-gradient(circle at 90% 85%, rgba(192,69,58,0.10), transparent 45%),
-    var(--ink);
-  color:var(--paper);
-  font-family:'Noto Sans Arabic','Noto Sans',sans-serif;
-  min-height:100vh;
-  line-height:1.7;
+  background:radial-gradient(circle at 12% 8%, rgba(201,162,39,0.10), transparent 40%),
+             radial-gradient(circle at 90% 85%, rgba(192,69,58,0.10), transparent 45%), var(--ink);
+  color:var(--paper); font-family:'Noto Sans Arabic','Noto Sans',sans-serif; min-height:100vh; line-height:1.7;
 }
 .fr{font-family:'Noto Sans',sans-serif;direction:ltr;text-align:left;}
-h1,h2,h3,.display{font-family:'Fraunces','Noto Sans Arabic',serif;}
+h1,h2,h3{font-family:'Fraunces','Noto Sans Arabic',serif;}
 .mono{font-family:'Space Mono',monospace;letter-spacing:0.04em;}
-
-/* ---- shell ---- */
 .shell{max-width:1180px;margin:0 auto;padding:28px 20px 80px;}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:1px solid var(--line);padding-bottom:22px;margin-bottom:26px;}
 .brand{display:flex;align-items:center;gap:14px;}
 .seal{width:52px;height:52px;border-radius:50%;border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;color:var(--gold);font-family:'Space Mono',monospace;font-weight:700;font-size:13px;flex-shrink:0;}
-.brand h1{font-size:26px;margin:0;color:var(--paper);}
+.brand h1{font-size:24px;margin:0;color:var(--paper);}
 .brand p{margin:2px 0 0;color:var(--paper-dim);font-size:13.5px;}
 .progress-pill{background:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:13px;color:var(--gold-soft);white-space:nowrap;}
-
-/* ---- passport strip (levels) ---- */
-.passport{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
-.pp-tab{
-  position:relative;flex:1;min-width:110px;
-  background:var(--ink-2);border:1px solid var(--line);border-radius:10px;
-  padding:14px 10px 12px;text-align:center;cursor:pointer;transition:.15s;
-}
+.passport{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px;}
+.pp-tab{position:relative;flex:1;min-width:105px;background:var(--ink-2);border:1px solid var(--line);border-radius:10px;padding:14px 10px 12px;text-align:center;cursor:pointer;transition:.15s;}
 .pp-tab:hover{border-color:var(--gold-soft);}
 .pp-tab.active{background:var(--ink-3);border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset;}
 .pp-tab .code{font-family:'Space Mono',monospace;font-size:20px;font-weight:700;color:var(--paper);}
 .pp-tab .lbl{font-size:11px;color:var(--paper-dim);margin-top:2px;}
-.stamp{
-  position:absolute;top:-10px;left:-8px;width:34px;height:34px;border-radius:50%;
-  border:2px solid var(--maple);color:var(--maple);display:flex;align-items:center;justify-content:center;
-  font-size:16px;background:var(--ink);transform:rotate(-14deg);
-}
-
-/* ---- skill tabs ---- */
-.skills{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap;}
-.sk-tab{
-  background:transparent;border:1px solid var(--line);color:var(--paper-dim);
-  padding:10px 16px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;
-  display:flex;align-items:center;gap:8px;transition:.15s;
-}
+.stamp{position:absolute;top:-10px;left:-8px;width:32px;height:32px;border-radius:50%;border:2px solid var(--maple);color:var(--maple);display:flex;align-items:center;justify-content:center;font-size:15px;background:var(--ink);transform:rotate(-14deg);}
+.skills{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;}
+.sk-tab{background:transparent;border:1px solid var(--line);color:var(--paper-dim);padding:10px 16px;border-radius:8px;cursor:pointer;font-size:14px;font-weight:600;display:flex;align-items:center;gap:8px;transition:.15s;}
 .sk-tab.active{background:var(--gold);border-color:var(--gold);color:var(--ink);}
 .sk-tab .badge{width:8px;height:8px;border-radius:50%;background:var(--ok);display:none;}
 .sk-tab.done .badge{display:inline-block;}
-
-/* ---- card ---- */
 .card{background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:20px;}
 .card h2{margin:0 0 4px;font-size:20px;color:var(--paper);}
-.card .sub{color:var(--gold-soft);font-size:13px;margin-bottom:18px;}
+.card .sub{color:var(--gold-soft);font-size:13px;margin-bottom:16px;}
 .instr{background:var(--ink-3);border-radius:10px;padding:14px 16px;margin-bottom:18px;font-size:14.5px;color:var(--paper-dim);border-right:3px solid var(--gold);}
-
-.btn{
-  background:var(--gold);color:var(--ink);border:none;border-radius:8px;
-  padding:10px 20px;font-weight:700;font-size:14px;cursor:pointer;transition:.15s;
-  font-family:'Noto Sans Arabic',sans-serif;
-}
+.btn{background:var(--gold);color:var(--ink);border:none;border-radius:8px;padding:10px 20px;font-weight:700;font-size:14px;cursor:pointer;transition:.15s;font-family:'Noto Sans Arabic',sans-serif;}
 .btn:hover{background:var(--gold-soft);}
 .btn.secondary{background:transparent;border:1px solid var(--gold);color:var(--gold-soft);}
 .btn.secondary:hover{background:rgba(201,162,39,0.1);}
 .btn:disabled{opacity:.4;cursor:not-allowed;}
-
+.progress-bar-wrap{background:var(--ink-3);border-radius:999px;height:8px;overflow:hidden;margin-bottom:6px;}
+.progress-bar-fill{background:var(--gold);height:100%;transition:width .25s;}
+.q-counter{font-size:12.5px;color:var(--paper-dim);margin-bottom:16px;display:flex;justify-content:space-between;}
 .transcript-box{background:var(--ink-3);border-radius:10px;padding:16px 18px;margin:14px 0;font-size:15px;display:none;}
 .passage{background:var(--ink-3);border-radius:10px;padding:18px 20px;margin-bottom:18px;font-size:15.5px;}
-
-.q{margin:18px 0;padding-bottom:16px;border-bottom:1px solid var(--line);}
-.q:last-child{border-bottom:none;}
-.q .qtext{font-size:15px;color:var(--paper);margin-bottom:10px;font-weight:600;}
-.opt{display:block;background:var(--ink);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin-bottom:8px;cursor:pointer;font-size:14.5px;transition:.15s;}
-.opt:hover{border-color:var(--gold-soft);}
-.opt input{margin-left:10px;}
-.opt.correct{border-color:var(--ok);background:rgba(110,155,123,0.15);}
-.opt.wrong{border-color:var(--bad);background:rgba(192,69,58,0.15);}
-.explain{font-size:13px;color:var(--paper-dim);margin-top:8px;display:none;background:var(--ink);padding:8px 12px;border-radius:6px;}
-
-.score-box{background:var(--ink-3);border:1px solid var(--gold);border-radius:10px;padding:16px 20px;margin-top:18px;text-align:center;display:none;}
-.score-box .num{font-family:'Space Mono',monospace;font-size:30px;color:var(--gold-soft);}
-
-textarea{
-  width:100%;min-height:150px;background:var(--ink-3);border:1px solid var(--line);
-  border-radius:10px;padding:14px;color:var(--paper);font-family:'Noto Sans',sans-serif;
-  font-size:15px;resize:vertical;margin-bottom:10px;
-}
+.qtext{font-size:16px;color:var(--paper);margin-bottom:14px;font-weight:600;}
+.opt{display:block;background:var(--ink);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:9px;cursor:pointer;font-size:15px;transition:.12s;}
+.opt:hover{border-color:var(--gold-soft);background:rgba(201,162,39,0.06);}
+.opt.correct{border-color:var(--ok);background:rgba(110,155,123,0.18);}
+.opt.wrong{border-color:var(--bad);background:rgba(192,69,58,0.18);}
+.opt.dim{opacity:.55;}
+.playbar{display:flex;align-items:center;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
+.review-item{border-bottom:1px solid var(--line);padding:14px 0;}
+.review-item:last-child{border-bottom:none;}
+.review-item .q{font-size:14.5px;color:var(--paper);margin-bottom:6px;}
+.review-item .ans-line{font-size:13.5px;margin-bottom:3px;}
+.ok-txt{color:var(--ok);} .bad-txt{color:var(--bad);}
+.explain{font-size:13px;color:var(--paper-dim);margin-top:4px;}
+.score-box{background:var(--ink-3);border:1px solid var(--gold);border-radius:10px;padding:18px 20px;margin-bottom:20px;text-align:center;}
+.score-box .num{font-family:'Space Mono',monospace;font-size:34px;color:var(--gold-soft);}
+.score-box .cecrl{font-size:13px;color:var(--paper-dim);margin-top:4px;}
+.task-tabs{display:flex;gap:8px;margin-bottom:18px;}
+.task-tab{background:var(--ink-3);border:1px solid var(--line);color:var(--paper-dim);padding:8px 14px;border-radius:7px;cursor:pointer;font-size:13px;font-weight:600;}
+.task-tab.active{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+.task-tab.viewed{border-color:var(--ok);}
+.task-tag{display:inline-block;background:var(--ink-3);color:var(--gold-soft);font-size:11px;padding:3px 9px;border-radius:999px;margin-bottom:10px;font-family:'Space Mono',monospace;}
+textarea{width:100%;min-height:150px;background:var(--ink-3);border:1px solid var(--line);border-radius:10px;padding:14px;color:var(--paper);font-family:'Noto Sans',sans-serif;font-size:15px;resize:vertical;margin-bottom:8px;}
 .wordcount{font-size:12.5px;color:var(--paper-dim);margin-bottom:14px;}
 .model-box{background:var(--ink-3);border-right:3px solid var(--ok);border-radius:10px;padding:16px 18px;margin-top:14px;display:none;}
 .model-box h4{margin:0 0 8px;color:var(--ok);font-size:14px;}
 .criteria{list-style:none;padding:0;margin:10px 0;}
 .criteria li{font-size:13.5px;color:var(--paper-dim);padding:4px 0;}
 .criteria li:before{content:"✓ ";color:var(--gold);}
-
-.playbar{display:flex;align-items:center;gap:12px;margin-bottom:6px;flex-wrap:wrap;}
 .footer-note{text-align:center;color:var(--paper-dim);font-size:12px;margin-top:40px;}
-@media(max-width:640px){.card{padding:18px;}.brand h1{font-size:21px;}}
+@media(max-width:640px){.card{padding:18px;}.brand h1{font-size:20px;}}
 </style>
 </head>
 <body>
 <div class="shell">
-
   <div class="top">
     <div class="brand">
       <div class="seal">TCF</div>
       <div>
-        <h1>بوابة المراجعة ديال TCF Canada</h1>
-        <p>من A0 حتى B2 · الفهم والتعبير الشفوي والكتابي · بالدارجة والفرنسية</p>
+        <h1>محاكاة امتحان TCF Canada</h1>
+        <p>39 سؤال ديال الفهم لكل قسم · 3 مهام للتعبير · سؤال وحد ف كل مرة بحال الامتحان الحقيقي</p>
       </div>
     </div>
-    <div class="progress-pill mono" id="globalProgress">0 / 20 تمرين خدمتي</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <button class="btn secondary" id="guideBtn">📘 دليل الاستراتيجية والقوالب</button>
+      <div class="progress-pill mono" id="globalProgress">0%</div>
+    </div>
   </div>
-
   <div class="passport" id="levelTabs"></div>
   <div class="skills" id="skillTabs"></div>
   <div id="content"></div>
-
-  <p class="footer-note">صايبها ليك: كل تمرين كتلقى الجواب والتصحيح فالأخير · التقدم ديالك كيتسجل أوتوماتيكيا فهاد المتصفح</p>
+  <p class="footer-note">فقسم الفهم: كتجاوب على سؤال وكتدوز أوتوماتيكيا للي موراه، بحال الامتحان الحقيقي (ما ترجعش تقدر تبدل الجواب من بعد). النتيجة والتصحيح الكامل يبانو فالأخير.</p>
 </div>
 
 <script>
 /* ===================== DATA ===================== */
 const LEVELS = ["A0","A1","A2","B1","B2"];
 const LEVEL_LABELS = {A0:"بداية",A1:"مبتدئ",A2:"مبتدئ+",B1:"متوسط",B2:"متوسط عالي"};
+const CECRL_HINT = {A0:"قبل A1",A1:"A1",A2:"A2",B1:"B1",B2:"B2 - أعتاب C1"};
 const SKILLS = [
   {id:"co", ar:"الفهم الشفوي", fr:"Compréhension orale", icon:"🎧"},
   {id:"ce", ar:"الفهم الكتابي", fr:"Compréhension écrite", icon:"📖"},
@@ -154,381 +122,524 @@ const SKILLS = [
   {id:"eo", ar:"التعبير الشفوي", fr:"Expression orale", icon:"🗣️"}
 ];
 
+function q(stim,question,opts,c,ex){ return {stim,question,opts,c,ex}; }
+function task(tag,label,instr,criteria,model,prep,words){ return {tag,label,instr,criteria,model,prep:prep||0,words:words||null}; }
+
 const CONTENT = {
 A0:{
- co:{
-  title:"عند التعارف",
-  instr:"كبس على 'شغل التسجيل' وسمع مزيان (غادي يتقرا ليك بالفرنسية). من بعد جاوب على الأسئلة. تقدر تسمعها بزاف ديال المرات.",
-  transcript:"Bonjour ! Je m'appelle Fatima. J'ai vingt-cinq ans. J'habite à Rabat, au Maroc. Je suis étudiante. Et vous ? — Bonjour Fatima, moi c'est Karim. J'ai trente ans. J'habite à Casablanca. Je suis professeur.",
-  questions:[
-   {q:"Comment s'appelle la première personne ?",opts:["Karim","Fatima","Amina","Sara"],c:1,ex:"فالبداية كتقول 'Je m'appelle Fatima'."},
-   {q:"Quel âge a Fatima ?",opts:["20 ans","25 ans","30 ans","35 ans"],c:1,ex:"'J'ai vingt-cinq ans' = عندها 25 عام."},
-   {q:"Où habite Karim ?",opts:["Rabat","Salé","Casablanca","Fès"],c:2,ex:"Karim كيقول 'J'habite à Casablanca'."},
-   {q:"Quelle est la profession de Karim ?",opts:["Étudiant","Médecin","Professeur","Ingénieur"],c:2,ex:"'Je suis professeur' = أستاذ."}
-  ]
- },
- ce:{
-  title:"يوم عادي ديال يوسف",
-  instr:"قرا النص بالفرنسية مزيان، من بعد جاوب على الأسئلة.",
-  passage:"Je m'appelle Youssef. Chaque matin, je me réveille à sept heures. Je prends le petit-déjeuner avec ma famille. Ensuite, je vais au travail en bus. Le soir, je rentre à la maison à six heures.",
-  questions:[
-   {q:"À quelle heure Youssef se réveille-t-il ?",opts:["6h","7h","8h","9h"],c:1,ex:"'je me réveille à sept heures'."},
-   {q:"Avec qui prend-il le petit-déjeuner ?",opts:["Seul","Ses amis","Sa famille","Ses collègues"],c:2,ex:"'avec ma famille'."},
-   {q:"Comment va-t-il au travail ?",opts:["À pied","En voiture","En bus","En vélo"],c:2,ex:"'je vais au travail en bus'."},
-   {q:"À quelle heure rentre-t-il le soir ?",opts:["5h","6h","7h","8h"],c:1,ex:"'je rentre à la maison à six heures'."}
-  ]
- },
- ee:{
-  title:"عرّف براسك",
-  instr:"كتب نص قصير (30-40 كلمة) تعرف فيه براسك: سميتك، عمرك، المدينة، الخدمة ديالك.",
-  criteria:["استعمل الفعل 'être' و 'avoir' فالحاضر","بدا بـ Je m'appelle...","عطي جملة على الشي لي كتحب"],
-  model:"Je m'appelle Amine. J'ai vingt-huit ans. J'habite à Salé. Je suis infirmier. J'aime le football et la lecture. Le week-end, je passe du temps avec ma famille."
- },
- eo:{
-  title:"عرّف بالعائلة ديالك",
-  instr:"تحضر دقيقة وحدة، من بعد تكلم بصوت عالي على العائلة ديالك (2-3 جمل). تقدر تسمع النموذج للمقارنة.",
-  criteria:["سمي أعضاء العائلة","عطي المهنة ديال حد منهم","تكلم بجمل بسيطة وواضحة"],
-  model:"Dans ma famille, nous sommes cinq personnes : mon père, ma mère, mon frère, ma sœur et moi. Mon père est commerçant et ma mère est femme au foyer. Mon frère est étudiant à l'université."
- }
+ co:[
+  q("Bonjour, comment ça va ? — Ça va bien, merci, et vous ?","Que répond la deuxième personne ?",["Ça va bien, merci","Je m'appelle Karim","Il est trois heures","Au revoir"],0,"'Ça va bien, merci' هو الجواب على السلامة."),
+  q("Quel âge as-tu ? — J'ai douze ans.","Quel âge a la personne ?",["10 ans","11 ans","12 ans","13 ans"],2,"'J'ai douze ans' = 12."),
+  q("Le train part à neuf heures. — D'accord, merci.","À quelle heure part le train ?",["8h","9h","10h","11h"],1,"'neuf heures' = 9h."),
+  q("C'est combien, s'il vous plaît ? — Ça fait dix dirhams.","Combien ça coûte ?",["5 dh","10 dh","15 dh","20 dh"],1,"'dix dirhams' = 10."),
+  q("Où est la pharmacie ? — Elle est à côté de la banque.","Où se trouve la pharmacie ?",["Près de l'école","À côté de la banque","En face de la gare","Loin du centre"],1,"'à côté de la banque'."),
+  q("Je suis désolé, je suis en retard. — Ce n'est pas grave.","Pourquoi la personne s'excuse-t-elle ?",["Elle est en retard","Elle a perdu ses clés","Elle est malade","Elle a oublié un rendez-vous"],0,"'je suis en retard'."),
+  q("Il est quelle heure ? — Il est midi.","Quelle heure est-il ?",["10h","11h","Midi","13h"],2,"'Il est midi'."),
+  q("Vous avez des frères et sœurs ? — Oui, j'ai une sœur.","Combien de sœurs a la personne ?",["Zéro","Une","Deux","Trois"],1,"'j'ai une sœur'."),
+  q("La chambre coûte trois cents dirhams par nuit.","Combien coûte la chambre par nuit ?",["100 dh","200 dh","300 dh","400 dh"],2,"'trois cents dirhams'."),
+  q("Le magasin ferme à dix-neuf heures ce soir.","À quelle heure ferme le magasin ?",["17h","18h","19h","20h"],2,"'dix-neuf heures' = 19h.")
+ ],
+ ce:[
+  q("Pharmacie ouverte de 8h à 20h, tous les jours.","Quels sont les horaires ?",["8h-18h","8h-20h","9h-20h","9h-18h"],1,"مكتوب '8h à 20h'."),
+  q("Entrée gratuite pour les enfants de moins de 5 ans.","Qui entre gratuitement ?",["Les enfants de moins de 5 ans","Tous les enfants","Les adultes","Personne"],0,"'moins de 5 ans'."),
+  q("Attention : sol mouillé.","Que signifie ce panneau ?",["Sortie de secours","Sol mouillé — danger","Entrée interdite","Silence"],1,"'sol mouillé' = الأرض مبلولة."),
+  q("Rendez-vous chez le médecin lundi à 15h.","Quel jour est le rendez-vous ?",["Dimanche","Lundi","Mardi","Mercredi"],1,"مكتوب 'lundi'."),
+  q("Fermé pour les vacances du 1er au 15 août.","Combien de jours dure la fermeture ?",["10 jours","14 jours","15 jours","20 jours"],2,"من 1 حتى 15 غشت = 15 يوم."),
+  q("Bienvenue ! Merci d'éteindre votre téléphone.","Que doit faire le visiteur ?",["Allumer la lumière","Éteindre son téléphone","Ouvrir la porte","Prendre des photos"],1,"'éteindre votre téléphone'."),
+  q("École fermée le samedi et le dimanche.","Quels jours l'école est-elle fermée ?",["Lundi et mardi","Mercredi et jeudi","Vendredi et samedi","Samedi et dimanche"],3,"'le samedi et le dimanche'."),
+  q("Prix : 2 kg de pommes pour quinze dirhams.","Combien coûtent 2 kg de pommes ?",["5 dh","10 dh","15 dh","20 dh"],2,"مكتوب 'quinze dirhams'."),
+  q("Salle d'attente : merci de patienter, le docteur arrive dans 10 minutes.","Dans combien de temps arrive le docteur ?",["5 minutes","10 minutes","15 minutes","20 minutes"],1,"'dans 10 minutes'."),
+  q("Piscine ouverte de juin à septembre.","Pendant combien de mois la piscine est-elle ouverte ?",["2 mois","3 mois","4 mois","5 mois"],2,"juin، juillet، août، septembre = 4 أشهر.")
+ ],
+ ee:[
+  task("Tâche 1","المهمة 1 — رسالة قصيرة","اكتب SMS لصاحبك باش تلغي لقاء (20-30 كلمة).",["جمل قصيرة وبسيطة","اعتذار واضح","اقترح وقت آخر"],"Salut Yassine, désolé mais je ne peux pas venir aujourd'hui, j'ai un problème. On se voit demain à la même heure ? Merci !",0,"20-30"),
+  task("Tâche 2","المهمة 2 — فيش تعريفية","عرّف براسك فـ 5 جمل بسيطة (سميتك، عمرك، المدينة، العائلة، الخدمة).",["فعل être و avoir فالحاضر","معلومات واضحة ومرتبة"],"Je m'appelle Amine. J'ai vingt-huit ans. J'habite à Salé. J'ai une petite famille : ma femme et un enfant. Je suis infirmier.",0,"30-40"),
+  task("Tâche 3","المهمة 3 — وصف بسيط","وصف الدار ديالك بجمل بسيطة (30-40 كلمة).",["استعمل 'il y a'","سمي الغرف"],"Dans ma maison, il y a trois chambres, une cuisine et un salon. Il y a aussi un petit jardin. J'aime beaucoup ma maison car elle est calme.",0,"30-40")
+ ],
+ eo:[
+  task("Tâche 1","المهمة 1 — مقابلة موجهة (بلا تحضير)","جاوب مباشرة: Comment vous appelez-vous ? Où habitez-vous ? Qu'est-ce que vous aimez faire ?",["جاوب بجمل كاملة بسيطة","ما تخافش من الأخطاء الصغيرة"],"Je m'appelle Sara. J'habite à Rabat. J'aime lire et cuisiner le week-end.",0),
+  task("Tâche 2","المهمة 2 — تفاعل (مع تحضير)","نتا فحانوت. اسول على الثمن ديال شي حاجة وفين الكاسة.",["استعمل صيغة السؤال بأدب","'S'il vous plaît' / 'Combien ça coûte'"],"Bonjour, s'il vous plaît, combien coûte ce pain ? Et où est la caisse ?",60),
+  task("Tâche 3","المهمة 3 — عرض بسيط","وصف نهار عادي ديالك (دقيقة وحدة).",["رتب الأحداث بالساعة","استعمل 'd'abord, puis, ensuite'"],"D'abord, je me réveille à sept heures. Ensuite, je prends le petit-déjeuner. Puis je vais au travail. Le soir, je rentre à la maison et je regarde la télévision.",0)
+ ]
 },
 A1:{
- co:{
-  title:"فالمخبزة",
-  instr:"سمع الحوار، من بعد جاوب.",
-  transcript:"Bonjour, je voudrais deux baguettes et trois croissants, s'il vous plaît. — Voilà madame, ça fait six euros cinquante. Vous voulez autre chose ? — Non merci, c'est tout. — Bonne journée ! — Merci, au revoir !",
-  questions:[
-   {q:"Qu'est-ce que la cliente achète ?",opts:["Du pain et des croissants","Des gâteaux","Du fromage","Des fruits"],c:0,ex:"'deux baguettes et trois croissants'."},
-   {q:"Combien ça coûte ?",opts:["5,50€","6,50€","7,50€","6€"],c:1,ex:"'ça fait six euros cinquante'."},
-   {q:"Où se passe la scène ?",opts:["Au marché","À la boulangerie","Au restaurant","Au supermarché"],c:1,ex:"كاين الكلام على baguettes و croissants = مخبزة."},
-   {q:"La cliente veut-elle autre chose ?",opts:["Oui","Non"],c:1,ex:"'Non merci, c'est tout'."}
-  ]
- },
- ce:{
-  title:"برنامج نهاية الأسبوع",
-  instr:"قرا النص وجاوب.",
-  passage:"Ce week-end, il va faire beau à Montréal. Samedi, je vais me promener dans le parc avec mes enfants. Dimanche, je vais visiter le musée avec ma femme. Le soir, nous allons dîner au restaurant.",
-  questions:[
-   {q:"Quel temps va-t-il faire ce week-end ?",opts:["Pluvieux","Beau","Neigeux","Nuageux"],c:1,ex:"'il va faire beau'."},
-   {q:"Que fait-il samedi ?",opts:["Il travaille","Il se promène au parc","Il visite un musée","Il reste à la maison"],c:1,ex:"'je vais me promener dans le parc'."},
-   {q:"Avec qui visite-t-il le musée ?",opts:["Ses enfants","Sa femme","Ses amis","Seul"],c:1,ex:"'je vais visiter le musée avec ma femme'."},
-   {q:"Que font-ils le soir ?",opts:["Ils regardent la télé","Ils dînent au restaurant","Ils dorment tôt","Ils font du sport"],c:1,ex:"'nous allons dîner au restaurant'."}
-  ]
- },
- ee:{
-  title:"دعوة لعيد الميلاد",
-  instr:"كتب رسالة قصيرة لصاحبك تعزمو على عيد الميلاد ديالك (40-60 كلمة).",
-  criteria:["استعمل صيغة الدعوة (Je t'invite / Viens...)","حدد المكان والوقت","سلام فالبداية والنهاية"],
-  model:"Salut Sofia, j'organise une petite fête pour mon anniversaire samedi prochain à 18h, chez moi à Rabat. J'espère que tu pourras venir ! Il y aura de la musique et un bon gâteau. Réponds-moi vite. À bientôt, Amine."
- },
- eo:{
-  title:"وصف المدينة ديالك",
-  instr:"تحضر دقيقة، من بعد وصف المدينة ديالك (1-2 دقيقة).",
-  criteria:["سمي المدينة والبلاد","وصف مكان واحد مشهور فيها","عطي رايك (كتعجبك ولا لا ولاش)"],
-  model:"Je viens de Salé, une ville au Maroc, près de Rabat. C'est une ville historique avec une belle médina. J'aime beaucoup ma ville parce qu'elle est calme et proche de la mer."
- }
+ co:[
+  q("Bonjour, je voudrais un café et un croissant, s'il vous plaît. — Voilà, ça fait quatre euros.","Qu'est-ce que le client commande ?",["Un thé et un gâteau","Un café et un croissant","Un jus et un sandwich","Une eau et une salade"],1,"'un café et un croissant'."),
+  q("Le bus numéro 12 passe toutes les vingt minutes.","Toutes les combien de minutes passe le bus ?",["10","15","20","30"],2,"'vingt minutes'."),
+  q("Il pleut aujourd'hui, prends ton parapluie !","Quel temps fait-il ?",["Il fait beau","Il pleut","Il neige","Il fait chaud"],1,"'Il pleut'."),
+  q("Excusez-moi, pour aller à la gare, s'il vous plaît ? — Continuez tout droit puis tournez à gauche.","Que doit faire la personne après avoir continué tout droit ?",["Tourner à droite","Tourner à gauche","S'arrêter","Traverser"],1,"'puis tournez à gauche'."),
+  q("Le film commence à vingt heures trente.","À quelle heure commence le film ?",["19h30","20h00","20h30","21h00"],2,"'vingt heures trente' = 20h30."),
+  q("J'ai réservé une table pour quatre personnes à midi.","Pour combien de personnes est la réservation ?",["2","3","4","5"],2,"'quatre personnes'."),
+  q("Le magasin de vêtements fait des soldes cette semaine : moins trente pour cent.","Quelle réduction propose le magasin ?",["-10%","-20%","-30%","-40%"],2,"'moins trente pour cent'."),
+  q("Pour aller à la piscine, prenez le tram jusqu'à l'arrêt Université, puis marchez cinq minutes.","Comment aller à la piscine ?",["En bus puis à pied","En tram puis à pied","En voiture uniquement","À vélo"],1,"'prenez le tram... puis marchez'."),
+  q("Le concert commence à vingt et une heures, les portes ouvrent à vingt heures.","À quelle heure ouvrent les portes ?",["19h","20h","21h","22h"],1,"'les portes ouvrent à vingt heures'."),
+  q("J'ai perdu mon sac, il est noir avec une fermeture rouge.","De quelle couleur est le sac ?",["Noir avec fermeture rouge","Rouge avec fermeture noire","Bleu","Marron"],0,"'noir avec une fermeture rouge'.")
+ ],
+ ce:[
+  q("Le magasin est ouvert du lundi au samedi, de 9h à 19h. Fermé le dimanche.","Quel jour le magasin est-il fermé ?",["Samedi","Dimanche","Lundi","Mardi"],1,"'Fermé le dimanche'."),
+  q("Menu du jour : soupe, poulet rôti, dessert — 12 euros.","Combien coûte le menu ?",["10€","12€","15€","20€"],1,"مكتوب '12 euros'."),
+  q("Cher client, votre colis sera livré demain entre 14h et 16h.","Quand le colis sera-t-il livré ?",["Aujourd'hui","Demain matin","Demain après-midi","La semaine prochaine"],2,"'demain entre 14h et 16h' = بعد الزوال."),
+  q("N'oubliez pas d'apporter votre pièce d'identité pour l'examen.","Que faut-il apporter ?",["Un stylo","Une pièce d'identité","Un livre","Un ordinateur"],1,"'une pièce d'identité'."),
+  q("La réunion a été déplacée à 10h30 au lieu de 9h.","À quelle heure est maintenant la réunion ?",["9h","9h30","10h","10h30"],3,"'déplacée à 10h30'."),
+  q("Offre spéciale : -20% sur tous les articles ce week-end seulement.","Quand l'offre est-elle valable ?",["Toute la semaine","Ce week-end seulement","Tous les jours","Le premier du mois"],1,"'ce week-end seulement'."),
+  q("Cher voyageur, votre vol AF204 est retardé d'une heure. Nouvel horaire : 15h30.","Le vol part maintenant à quelle heure ?",["13h30","14h30","15h30","16h30"],2,"'Nouvel horaire : 15h30'."),
+  q("Inscription ouverte jusqu'au 30 septembre, places limitées à 25 personnes.","Combien de places sont disponibles ?",["15","20","25","30"],2,"'places limitées à 25 personnes'."),
+  q("Merci de ranger vos vélos dans le parking prévu à cet effet, à l'entrée du bâtiment.","Où faut-il ranger les vélos ?",["Dans le hall","Dans le parking à l'entrée","Dans la cour","Sur le trottoir"],1,"'dans le parking prévu... à l'entrée'."),
+  q("La bibliothèque prête jusqu'à 5 livres pour une durée de 3 semaines.","Pendant combien de temps peut-on garder les livres ?",["1 semaine","2 semaines","3 semaines","4 semaines"],2,"'pour une durée de 3 semaines'.")
+ ],
+ ee:[
+  task("Tâche 1","المهمة 1 — رسالة","اكتب رسالة لزميلك باش تأجل لقاء العمل (40-50 كلمة).",["سبب واضح للتأجيل","اقترح تاريخ بديل"],"Bonjour Nadia, je suis désolé, je dois reporter notre réunion de demain à cause d'un empêchement. Est-ce que jeudi à 14h vous conviendrait ? Merci de votre compréhension. Cordialement, Omar.",0,"40-50"),
+  task("Tâche 2","المهمة 2 — منتدى","حكي فمنتدى على المطعم المفضل عندك وعلاش كتحبو (60-80 كلمة).",["سمي المطعم والأكل","عطي سبب واحد على الأقل"],"Mon restaurant préféré s'appelle Le Jardin. J'aime beaucoup ce restaurant parce que la nourriture est délicieuse et le service est rapide. En plus, l'ambiance est calme et agréable. Je recommande vraiment leur tajine de poulet, il est excellent !",0,"60-80"),
+  task("Tâche 3","المهمة 3 — فيش تسجيل","عمر فيش تسجيل: وصف الهوايات ديالك والهدف ديالك من تعلم الفرنسية (60-80 كلمة).",["سمي هوايتين على الأقل","وضح الهدف ديالك"],"Mes loisirs préférés sont la lecture et le sport, surtout le football. J'apprends le français parce que je veux immigrer au Canada et travailler dans le domaine de la santé. Mon objectif est d'atteindre un bon niveau pour réussir le TCF Canada.",0,"60-80")
+ ],
+ eo:[
+  task("Tâche 1","المهمة 1 — مقابلة موجهة","جاوب: Qu'est-ce que vous faites le week-end ? Quel est votre plat préféré ?",["جاوب بجمل واضحة","زيد تفصيل صغير"],"Le week-end, je me promène avec ma famille. Mon plat préféré est le couscous, je l'aime beaucoup.",0),
+  task("Tâche 2","المهمة 2 — تفاعل (مع تحضير)","نتا فمطعم. اطلب المنيو وطلب طبق.",["'Je voudrais...'","اسول على اقتراح المطعم"],"Bonjour, est-ce que je peux voir le menu, s'il vous plaît ? Je voudrais un poulet rôti avec des frites, et une eau minérale.",60),
+  task("Tâche 3","المهمة 3 — عرض (1-2 دقيقة)","وصف الخدمة أو الدراسة ديالك.",["سمي الميدان","وصف يوم عادي فالخدمة/الدراسة"],"Je travaille comme comptable dans une petite entreprise. Chaque jour, je vérifie les factures et je prépare des rapports. J'aime mon travail parce qu'il est varié et intéressant.",0)
+ ]
 },
 A2:{
- co:{
-  title:"مكالمة على سفرية",
-  instr:"سمع الحوار، من بعد جاوب.",
-  transcript:"Allô, comment s'est passé ton voyage à Paris ? — C'était fantastique ! J'ai visité la Tour Eiffel et le Louvre. Il a fait un peu froid mais le soleil était là. — Tu es resté combien de temps ? — Une semaine, du 3 au 10 juillet. — Génial, tu as des photos ? — Oui, je te les enverrai ce soir.",
-  questions:[
-   {q:"Où la personne est-elle allée ?",opts:["À Londres","À Paris","À Rome","À Madrid"],c:1,ex:"'ton voyage à Paris'."},
-   {q:"Quel temps a-t-il fait ?",opts:["Très chaud","Pluvieux","Un peu froid","Neigeux"],c:2,ex:"'il a fait un peu froid'."},
-   {q:"Combien de temps est-elle restée ?",opts:["3 jours","1 semaine","2 semaines","1 mois"],c:1,ex:"'du 3 au 10 juillet' = semana."},
-   {q:"Qu'est-ce qu'elle va envoyer ce soir ?",opts:["Un cadeau","Des photos","Une lettre","De l'argent"],c:1,ex:"'je te les enverrai ce soir' (les photos)."}
-  ]
- },
- ce:{
-  title:"الهجرة نحو كندا",
-  instr:"قرا المقال وجاوب.",
-  passage:"De plus en plus de Marocains choisissent d'immigrer au Canada chaque année. Ils apprécient la qualité de vie, le système de santé gratuit et les opportunités de travail. Cependant, le climat froid et la distance avec la famille restent des défis importants pour les nouveaux arrivants.",
-  questions:[
-   {q:"Que font de plus en plus de Marocains ?",opts:["Ils voyagent en Europe","Ils immigrent au Canada","Ils étudient en France","Ils restent au Maroc"],c:1,ex:"'choisissent d'immigrer au Canada'."},
-   {q:"Qu'apprécient-ils au Canada ?",opts:["Le climat chaud","La qualité de vie et la santé gratuite","La cuisine","Les prix bas"],c:1,ex:"'la qualité de vie, le système de santé gratuit'."},
-   {q:"Quel est un défi mentionné ?",opts:["La langue anglaise","Le climat froid","Le coût des billets","Les visas"],c:1,ex:"'le climat froid... restent des défis'."},
-   {q:"Quel autre défi est cité ?",opts:["La distance avec la famille","Le manque de travail","La nourriture","Le sport"],c:0,ex:"'la distance avec la famille'."}
-  ]
- },
- ee:{
-  title:"حكي على سفرية",
-  instr:"حكي على سفرية درتيها (60-80 كلمة)، استعمل الماضي (passé composé).",
-  criteria:["passé composé صحيح (j'ai visité, je suis allé...)","رتب الأحداث بالترتيب","عطي رأيك فالأخير"],
-  model:"L'été dernier, je suis allé à Marrakech avec ma famille. Nous avons visité la place Jemaa el-Fna et les jardins Majorelle. Il a fait très chaud, mais nous avons beaucoup aimé la ville. Le soir, nous avons mangé dans un restaurant traditionnel. C'était un voyage inoubliable."
- },
- eo:{
-  title:"تجربة شخصية مهمة",
-  instr:"تحضر دقيقتين، من بعد حكي على تجربة مهمة فحياتك (2 دقائق).",
-  criteria:["استعمل الماضي","وصف المشاعر ديالك","خلي حكايتك منظمة (بداية، وسط، نهاية)"],
-  model:"Il y a deux ans, j'ai passé mon premier entretien d'embauche. J'étais très nerveux, mais tout s'est bien passé. J'ai obtenu le poste et c'était un moment très important pour moi. Cette expérience m'a donné confiance en moi."
- }
+ co:[
+  q("Hier, j'ai raté mon bus et je suis arrivé en retard au travail.","Pourquoi la personne est-elle arrivée en retard ?",["Elle s'est réveillée tard","Elle a raté son bus","Elle a eu un accident","Elle a oublié ses clés"],1,"'j'ai raté mon bus'."),
+  q("Nous avons visité trois musées pendant notre séjour à Lyon.","Combien de musées ont-ils visités ?",["2","3","4","5"],1,"'trois musées'."),
+  q("Le médecin m'a dit de me reposer pendant une semaine.","Que doit faire la personne ?",["Travailler plus","Se reposer une semaine","Voyager","Faire du sport"],1,"'de me reposer pendant une semaine'."),
+  q("J'ai oublié mon parapluie au bureau, il faudra que j'y retourne.","Qu'est-ce que la personne a oublié ?",["Ses clés","Son parapluie","Son téléphone","Son sac"],1,"'mon parapluie'."),
+  q("Ils se sont mariés il y a deux ans à Marrakech.","Où se sont-ils mariés ?",["Rabat","Marrakech","Fès","Casablanca"],1,"'à Marrakech'."),
+  q("Nous avons dû annuler notre voyage à cause de la météo.","Pourquoi ont-ils annulé leur voyage ?",["Manque d'argent","La météo","Une maladie","Le travail"],1,"'à cause de la météo'."),
+  q("Quand j'étais petit, j'habitais avec mes grands-parents à la campagne.","Où habitait la personne quand elle était petite ?",["En ville avec ses parents","À la campagne avec ses grands-parents","À l'étranger","Chez des amis"],1,"'j'habitais avec mes grands-parents à la campagne'."),
+  q("Elle a changé de travail parce que son ancien emploi ne lui plaisait plus.","Pourquoi a-t-elle changé de travail ?",["Elle a été licenciée","Son emploi ne lui plaisait plus","Elle a déménagé","Elle voulait voyager"],1,"'ne lui plaisait plus'."),
+  q("Nous avons attendu le bus pendant quarante-cinq minutes sous la pluie.","Combien de temps ont-ils attendu ?",["15 minutes","30 minutes","45 minutes","1 heure"],2,"'quarante-cinq minutes'."),
+  q("Après l'examen, j'étais tellement fatigué que je me suis endormi tout de suite.","Comment se sentait la personne après l'examen ?",["Excitée","Fatiguée","En colère","Inquiète"],1,"'tellement fatigué'.")
+ ],
+ ce:[
+  q("Le prix de l'essence a augmenté de dix pour cent ce mois-ci.","Que s'est-il passé avec le prix de l'essence ?",["Il a baissé","Il a augmenté","Il est resté stable","Il a été supprimé"],1,"'a augmenté de dix pour cent'."),
+  q("La nouvelle bibliothèque municipale ouvrira ses portes le mois prochain.","Quand la bibliothèque ouvrira-t-elle ?",["Cette semaine","Ce mois-ci","Le mois prochain","L'année prochaine"],2,"'le mois prochain'."),
+  q("Après plusieurs années à l'étranger, elle est enfin rentrée dans son pays natal.","Que vient-elle de faire ?",["Partir à l'étranger","Rentrer dans son pays","Changer de travail","Se marier"],1,"'elle est enfin rentrée'."),
+  q("De plus en plus de Marocains choisissent d'immigrer au Canada pour la qualité de vie.","Pourquoi choisissent-ils le Canada ?",["Le climat chaud","La qualité de vie","Les prix bas","La langue arabe"],1,"'pour la qualité de vie'."),
+  q("Le nouveau parc a été construit pour offrir un espace vert aux habitants du quartier.","Pourquoi le parc a-t-il été construit ?",["Pour un parking","Pour un espace vert","Pour un centre commercial","Pour une école"],1,"'offrir un espace vert'."),
+  q("Malgré la pluie, le marché est resté ouvert toute la journée.","Le marché est-il resté ouvert ?",["Oui","Non","Seulement le matin","Seulement le soir"],0,"'est resté ouvert toute la journée'.")
+ ],
+ ee:[
+  task("Tâche 1","المهمة 1 — إيميل اعتذار","اكتب إيميل تعتذر فيه على تأخر فلقاء مهني (50-60 كلمة).",["سبب معقول","اقترح حل"],"Objet : Excuses pour mon retard\n\nBonjour Monsieur Alami,\n\nJe suis désolé d'être arrivé en retard à notre rendez-vous ce matin, j'ai eu un problème de transport. Je propose de nous revoir cet après-midi à 15h si cela vous convient. Merci de votre compréhension.\n\nCordialement, Hicham",0,"50-60"),
+  task("Tâche 2","المهمة 2 — حكاية","حكي على ذكرى ديال العطلة (80-100 كلمة)، استعمل passé composé و imparfait.",["مزج بين الزمنين","وصف الأحاسيس"],"L'été dernier, je suis parti à Essaouira avec des amis. Le temps était magnifique et la mer était calme. Nous avons visité la médina et goûté du poisson grillé sur le port. Le soir, nous nous promenions sur la plage en écoutant de la musique. C'était un moment inoubliable que je n'oublierai jamais.",0,"80-100"),
+  task("Tâche 3","المهمة 3 — رأي","عطي رأيك: الشبكات الاجتماعية مفيدة ولا خطيرة؟ (100-120 كلمة).",["حجة واحدة على الأقل فكل جانب","رأي شخصي فالأخير"],"Les réseaux sociaux ont des avantages et des inconvénients. D'un côté, ils permettent de rester en contact avec la famille et les amis, même loin. D'un autre côté, ils peuvent causer une dépendance et prendre beaucoup de temps. À mon avis, il faut les utiliser avec modération pour profiter des avantages sans tomber dans les inconvénients.",0,"100-120")
+ ],
+ eo:[
+  task("Tâche 1","المهمة 1 — مقابلة موجهة","جاوب: Parlez-moi de votre dernier voyage. Qu'est-ce que vous avez aimé ?",["استعمل الماضي","عطي تفصيل واحد على الأقل"],"Mon dernier voyage était à Agadir avec ma famille. J'ai adoré la plage et le beau temps. Nous avons aussi visité la médina, c'était très intéressant.",0),
+  task("Tâche 2","المهمة 2 — تفاعل (مع تحضير)","بغيتي تبدل سلعة معيبة فحانوت. فسر الوضعية للبائع.",["فسر المشكل بوضوح","اطلب حل (تبديل/استرجاع)"],"Bonjour, j'ai acheté ce téléphone hier mais il ne fonctionne pas bien, l'écran ne s'allume pas. Est-ce que je peux l'échanger, s'il vous plaît ?",60),
+  task("Tâche 3","المهمة 3 — عرض (1-2 دقيقة)","حكي على حدث مهم فحياتك.",["رتب الأحداث","وصف كيفاش أثر عليك"],"Il y a deux ans, j'ai obtenu mon premier emploi. C'était un moment très important pour moi car j'ai commencé à être indépendant financièrement. Cette expérience m'a appris beaucoup de choses sur la responsabilité.",0)
+ ]
 },
 B1:{
- co:{
-  title:"تقرير على التوازن بين الخدمة والحياة",
-  instr:"سمع التقرير، من بعد جاوب.",
-  transcript:"Selon une étude récente, de plus en plus d'employés canadiens demandent plus de flexibilité au travail. Le télétravail, deux ou trois jours par semaine, est devenu la norme dans plusieurs entreprises. Les experts affirment que cette flexibilité améliore la productivité et réduit le stress, mais certains employeurs craignent une baisse de la collaboration entre collègues.",
-  questions:[
-   {q:"Que demandent de plus en plus d'employés ?",opts:["Un salaire plus élevé","Plus de flexibilité","Moins d'heures de travail","Plus de vacances"],c:1,ex:"'demandent plus de flexibilité au travail'."},
-   {q:"Combien de jours de télétravail sont mentionnés ?",opts:["1 jour","2 ou 3 jours","5 jours","Aucun"],c:1,ex:"'deux ou trois jours par semaine'."},
-   {q:"Quel avantage citent les experts ?",opts:["Plus de productivité et moins de stress","Plus de salaire","Plus de vacances","Moins de responsabilités"],c:0,ex:"'améliore la productivité et réduit le stress'."},
-   {q:"Quelle est la crainte de certains employeurs ?",opts:["La baisse de la collaboration","La perte d'argent","Le manque de bureaux","La météo"],c:0,ex:"'craignent une baisse de la collaboration'."}
-  ]
- },
- ce:{
-  title:"العمل عن بعد: مزايا وعيوب",
-  instr:"قرا المقال وجاوب.",
-  passage:"Le télétravail présente de nombreux avantages : il permet d'économiser du temps de transport, offre plus de flexibilité et améliore souvent l'équilibre entre vie professionnelle et vie personnelle. Cependant, il comporte aussi des inconvénients : isolement social, difficulté à séparer travail et vie privée, et parfois une communication moins efficace avec les collègues. Certaines entreprises adoptent donc un modèle hybride, combinant présence au bureau et travail à domicile.",
-  questions:[
-   {q:"Quel est un avantage du télétravail ?",opts:["Plus de réunions","Économie de temps de transport","Plus de bureaux","Moins de flexibilité"],c:1,ex:"'permet d'économiser du temps de transport'."},
-   {q:"Quel inconvénient est mentionné ?",opts:["L'isolement social","Le manque d'ordinateurs","Le prix élevé","Le bruit"],c:0,ex:"'isolement social'."},
-   {q:"Que choisissent certaines entreprises ?",opts:["Le télétravail total","Le modèle hybride","Le retour total au bureau","Rien de spécial"],c:1,ex:"'un modèle hybride'."},
-   {q:"Quelle difficulté est citée concernant la vie privée ?",opts:["Séparer travail et vie privée","Trouver un logement","Payer le loyer","Voyager"],c:0,ex:"'difficulté à séparer travail et vie privée'."}
-  ]
- },
- ee:{
-  title:"رأيك فالعمل عن بعد",
-  instr:"عطي رأيك: واش العمل عن بعد مفيد ولا لا؟ (120-150 كلمة، استعمل مواصلات منطقية زعما 'cependant', 'de plus', 'en revanche').",
-  criteria:["مقدمة، جسم، خلاصة","استعمل موصلات منطقية","دعم رأيك بمثال"],
-  model:"À mon avis, le télétravail est globalement bénéfique. Tout d'abord, il permet aux employés d'économiser du temps et de l'argent en évitant les longs trajets. De plus, il offre une meilleure flexibilité pour organiser sa journée. Cependant, il présente aussi des limites : certains employés se sentent isolés et manquent de contact humain avec leurs collègues. En revanche, un modèle hybride, combinant télétravail et présence au bureau, semble être la meilleure solution. En conclusion, je pense que le télétravail est une avancée positive, à condition d'être bien organisé."
- },
- eo:{
-  title:"موضوع مجتمعي: رأيك مع الحجج",
-  instr:"اختار موضوع (مثلا: التكنولوجيا فحياة الشباب) وعطي رأيك مع حجج مع وضد (2-3 دقائق).",
-  criteria:["قدم الموضوع بوضوح","عطي حجة مع وحجة ضد","خلص برأيك الشخصي"],
-  model:"Je pense que la technologie a beaucoup changé la vie des jeunes. D'un côté, elle facilite la communication et l'accès à l'information. D'un autre côté, elle peut créer une dépendance et réduire les interactions sociales réelles. Personnellement, je pense qu'il faut trouver un équilibre entre l'utilisation de la technologie et la vie sociale réelle."
- }
+ co:[
+  q("Selon une étude, de plus en plus d'employés canadiens demandent plus de flexibilité au travail.","Que demandent les employés ?",["Un bureau plus grand","Plus de flexibilité","Moins de responsabilités","Plus de collègues"],1,"'demandent plus de flexibilité'."),
+  q("Les scientifiques alertent sur la fonte accélérée des glaciers à cause du réchauffement climatique.","Quel est le sujet de l'alerte ?",["La fonte des glaciers","La pollution de l'eau","Le manque de pluie","Les incendies"],0,"'la fonte accélérée des glaciers'."),
+  q("L'université a lancé un programme de bourses pour les étudiants issus de familles modestes.","À qui s'adresse le nouveau programme ?",["Aux professeurs","Aux étudiants modestes","Aux entreprises","Aux touristes"],1,"'étudiants issus de familles modestes'."),
+  q("Grâce à l'intelligence artificielle, certaines tâches administratives sont désormais automatisées.","Qu'est-ce qui a changé grâce à l'IA ?",["Les tâches administratives sont automatisées","Les salaires ont augmenté","Les bureaux ont fermé","Les employés voyagent plus"],0,"'sont désormais automatisées'."),
+  q("Un nouveau centre de santé mentale a ouvert pour répondre à la demande croissante.","Pourquoi ce centre a-t-il ouvert ?",["Demande croissante en santé mentale","Manque de médecins généralistes","Fermeture d'un hôpital","Nouvelle loi sur les impôts"],0,"'répondre à la demande croissante'."),
+  q("La ville a inauguré un nouveau tramway pour réduire les embouteillages.","Quel est l'objectif du nouveau tramway ?",["Attirer les touristes","Réduire les embouteillages","Créer des emplois","Économiser de l'eau"],1,"'pour réduire les embouteillages'."),
+  q("Un rapport récent montre que les jeunes générations privilégient l'équilibre entre vie professionnelle et vie personnelle plutôt que le salaire seul.","Que privilégient les jeunes générations selon le rapport ?",["Le salaire uniquement","L'équilibre vie professionnelle/personnelle","Les horaires fixes","Le travail à l'étranger"],1,"'privilégient l'équilibre... plutôt que le salaire seul'."),
+  q("La municipalité encourage les habitants à trier leurs déchets grâce à un nouveau système de collecte sélective.","Que veut encourager la municipalité ?",["Le tri des déchets","La construction de routes","L'usage de la voiture","Le tourisme"],0,"'encourage... à trier leurs déchets'."),
+  q("De nombreux parents s'inquiètent du temps que leurs enfants passent devant les écrans.","De quoi s'inquiètent les parents ?",["Du temps passé devant les écrans","Du prix des jouets","Du manque de sport","Des résultats scolaires uniquement"],0,"'s'inquiètent du temps... devant les écrans'."),
+  q("Le nombre de candidatures pour les métiers de la santé a fortement augmenté ces dernières années.","Qu'est-ce qui a augmenté ?",["Le nombre de candidatures pour les métiers de la santé","Le prix des soins","Le nombre d'hôpitaux","Le salaire des médecins uniquement"],0,"'a fortement augmenté'.")
+ ],
+ ce:[
+  q("Le télétravail permet d'économiser du temps de transport, mais il comporte aussi un risque d'isolement social.","Quel inconvénient du télétravail est mentionné ?",["Le coût élevé","Le risque d'isolement social","Le manque d'ordinateurs","La pollution"],1,"'risque d'isolement social'."),
+  q("L'accès à l'eau potable reste un défi majeur dans plusieurs régions rurales, malgré les efforts des autorités.","Quel est le défi mentionné ?",["L'accès à l'eau potable","Le manque d'écoles","Le chômage","La pollution de l'air"],0,"'l'accès à l'eau potable'."),
+  q("Les jeunes diplômés peinent à trouver un premier emploi correspondant à leurs qualifications.","Quelle difficulté rencontrent les jeunes diplômés ?",["Trouver un logement","Trouver un emploi qualifié","Payer leurs études","Voyager à l'étranger"],1,"'trouver un premier emploi... qualifications'."),
+  q("Le gouvernement a annoncé de nouvelles mesures pour encourager l'utilisation des transports en commun.","Que veut encourager le gouvernement ?",["L'usage de la voiture","Les transports en commun","Le télétravail","Le vélo uniquement"],1,"'les transports en commun'."),
+  q("De nombreuses familles choisissent désormais de consommer des produits locaux et biologiques.","Que choisissent de plus en plus de familles ?",["Des produits importés","Des produits locaux et bio","Des plats surgelés","Des produits de luxe"],1,"'produits locaux et biologiques'."),
+  q("Le télétravail a modifié l'organisation des espaces de bureau dans de nombreuses entreprises.","Qu'est-ce qui a changé dans les entreprises ?",["Les salaires","L'organisation des espaces de bureau","Les horaires d'ouverture","Le nombre de clients"],1,"'l'organisation des espaces de bureau'."),
+  q("Un sondage récent révèle que la majorité des salariés souhaiteraient travailler quatre jours par semaine sans perte de salaire.","Que souhaitent la majorité des salariés ?",["Travailler quatre jours par semaine sans perte de salaire","Travailler plus d'heures","Changer de métier","Prendre leur retraite tôt"],0,"'travailler quatre jours par semaine sans perte de salaire'."),
+  q("Face à la hausse des loyers, de nombreux jeunes actifs choisissent de rester chez leurs parents plus longtemps.","Pourquoi les jeunes actifs restent-ils plus longtemps chez leurs parents ?",["La hausse des loyers","Le manque de travail","Les études longues","Les problèmes de santé"],0,"'face à la hausse des loyers'."),
+  q("Les associations de quartier organisent régulièrement des événements pour renforcer les liens entre voisins.","Quel est le but des événements organisés ?",["Renforcer les liens entre voisins","Vendre des produits","Nettoyer les rues","Trouver du travail"],0,"'renforcer les liens entre voisins'."),
+  q("Malgré la digitalisation, de nombreux clients préfèrent encore se rendre en agence pour certaines démarches bancaires.","Que préfèrent encore de nombreux clients ?",["Se rendre en agence pour certaines démarches","Utiliser uniquement internet","Fermer leur compte","Payer en espèces uniquement"],0,"'préfèrent encore se rendre en agence'.")
+ ],
+ ee:[
+  task("Tâche 1","المهمة 1 — رد على رسالة","صاحبك سولك على نصائح باش يتموقع فمدينتك. جاوبو (80-100 كلمة).",["نصيحة عملية واحدة على الأقل","نبرة ودية"],"Salut Karim, je suis ravi que tu viennes t'installer ici ! Je te conseille de chercher un logement dans le centre-ville, c'est plus pratique pour les transports. Pour le travail, le quartier des affaires recrute beaucoup en ce moment. N'hésite pas à me contacter si tu as besoin d'aide pour t'organiser. À bientôt !",0,"80-100"),
+  task("Tâche 2","المهمة 2 — رأي فمنتدى","عطي رأيك: واش العمل عن بعد مفيد؟ (120-150 كلمة).",["مقدمة، جسم، خلاصة","موصلات منطقية"],"À mon avis, le télétravail est globalement bénéfique. Il permet d'économiser du temps et de l'argent en évitant les longs trajets, tout en offrant plus de flexibilité. Cependant, il présente aussi des limites : certains employés se sentent isolés. En revanche, un modèle hybride, combinant télétravail et présence au bureau, semble être la meilleure solution. En conclusion, je pense que le télétravail est une avancée positive, à condition d'être bien organisé.",0,"120-150"),
+  task("Tâche 3","المهمة 3 — رأيان متعارضان","جوج آراء كيتعارضو على استعمال الهاتف فالمدرسة. عطي رأيك بحجج (150-180 كلمة).",["ناقش الجوج الآراء","خذ موقف واضح"],"Certains pensent que les téléphones doivent être interdits à l'école car ils distraient les élèves. D'autres estiment qu'ils peuvent être utiles pour les recherches. Je pense que l'interdiction pendant les cours est justifiée, car la concentration des élèves est essentielle. Cependant, ils pourraient être autorisés pendant les pauses. Un juste équilibre semble donc la meilleure approche.",0,"150-180")
+ ],
+ eo:[
+  task("Tâche 1","المهمة 1 — مقابلة موجهة","جاوب على أسئلة على عادات الحياة ديالك (بلا تحضير).",["تفاصيل شخصية حقيقية","جمل مركبة"],"Je me lève tôt tous les jours pour aller au travail. Le soir, j'aime lire ou regarder un film avec ma famille. Le week-end, je fais du sport.",0),
+  task("Tâche 2","المهمة 2 — تفاعل (مع تحضير)","بغيتي تسجل فدورة فرنسية. اسول على التوقيت، الثمن، والمستوى.",["أسئلة واضحة ومرتبة","نبرة مهذبة"],"Bonjour, je voudrais des informations sur vos cours de français. Quels sont les horaires disponibles ? Combien coûte l'inscription ? Et proposez-vous un test de niveau avant de commencer ?",60),
+  task("Tâche 3","المهمة 3 — عرض بحجج (2-3 دقائق)","العمل عن بعد: معاه ولا ضدو؟ عطي رأيك بحجج.",["حجة مع وحجة ضد","خلاصة شخصية"],"Je pense que le télétravail a beaucoup d'avantages, comme la flexibilité et le gain de temps. Cependant, il peut aussi isoler les employés. Personnellement, je pense qu'un modèle hybride est idéal, car il combine les avantages des deux systèmes.",0)
+ ]
 },
 B2:{
- co:{
-  title:"مناظرة على سياسة الهجرة",
-  instr:"سمع المقتطف من مناظرة، من بعد جاوب.",
-  transcript:"Le gouvernement a récemment annoncé une révision de sa politique d'immigration afin de mieux répondre aux besoins du marché du travail. Certains experts saluent cette décision, estimant qu'elle permettra d'attirer davantage de travailleurs qualifiés. D'autres, en revanche, s'inquiètent des conséquences sur les délais de traitement des dossiers, déjà jugés trop longs par de nombreux candidats. Le débat reste donc ouvert quant à l'efficacité réelle de cette réforme.",
-  questions:[
-   {q:"Qu'a annoncé le gouvernement ?",opts:["Une révision de la politique d'immigration","Une baisse des impôts","Une nouvelle loi sur le travail","Un plan de santé"],c:0,ex:"'une révision de sa politique d'immigration'."},
-   {q:"Pourquoi certains experts saluent-ils la décision ?",opts:["Elle attirera plus de travailleurs qualifiés","Elle réduira les impôts","Elle simplifiera les visas touristiques","Elle n'a aucun effet"],c:0,ex:"'attirer davantage de travailleurs qualifiés'."},
-   {q:"Quelle est l'inquiétude évoquée ?",opts:["Les délais de traitement des dossiers","Le coût des billets d'avion","La météo","Le manque de logements"],c:0,ex:"'les délais de traitement des dossiers'."},
-   {q:"Quel est le ton général du passage ?",opts:["Un débat ouvert avec avis partagés","Une critique totale","Un éloge sans réserve","Un sujet non lié à l'immigration"],c:0,ex:"'Le débat reste donc ouvert'."}
-  ]
- },
- ce:{
-  title:"تغييرات فسياسة الهجرة الكندية",
-  instr:"قرا المقال وجاوب.",
-  passage:"Le Canada a introduit de nouvelles mesures visant à faciliter l'intégration des immigrants francophones hors Québec. Ces mesures comprennent des points supplémentaires dans le système Entrée express pour les candidats maîtrisant le français, ainsi que des programmes de soutien à l'installation dans les communautés francophones. L'objectif est double : renforcer la vitalité du français dans les provinces majoritairement anglophones et répondre à la pénurie de main-d'œuvre dans certains secteurs. Néanmoins, plusieurs organismes rappellent que l'accès au logement et à l'emploi reste un défi majeur pour les nouveaux arrivants, quelle que soit leur langue.",
-  questions:[
-   {q:"Quel est l'objectif principal des nouvelles mesures ?",opts:["Faciliter l'intégration des immigrants francophones hors Québec","Réduire l'immigration totale","Supprimer le système Entrée express","Favoriser uniquement les anglophones"],c:0,ex:"'faciliter l'intégration des immigrants francophones hors Québec'."},
-   {q:"Que reçoivent les candidats maîtrisant le français ?",opts:["Des points supplémentaires dans Entrée express","Un visa automatique","Un logement gratuit","Une réduction d'impôts"],c:0,ex:"'des points supplémentaires dans le système Entrée express'."},
-   {q:"Quel double objectif est mentionné ?",opts:["Renforcer le français et répondre à la pénurie de main-d'œuvre","Réduire les coûts et augmenter le tourisme","Améliorer le climat et la santé","Aucun objectif clair"],c:0,ex:"'renforcer la vitalité du français... et répondre à la pénurie de main-d'œuvre'."},
-   {q:"Quel défi reste présent selon le texte ?",opts:["L'accès au logement et à l'emploi","Le climat froid uniquement","Le manque d'écoles","Le coût des billets d'avion"],c:0,ex:"'l'accès au logement et à l'emploi reste un défi majeur'."}
-  ]
- },
- ee:{
-  title:"نص حجاجي مركب",
-  instr:"كتب نص حجاجي (200-250 كلمة) على موضوع مركب: 'واش خاص الحكومات تسهل ولا تقيد الهجرة؟'. خاصك مقدمة، تطوير بحجج مع وضد، وخلاصة.",
-  criteria:["مقدمة توضح الإشكالية","حجج متنوعة مع أمثلة","استعمال subjonctif ومواصلات معقدة","خلاصة شخصية واضحة"],
-  model:"L'immigration est un sujet complexe qui suscite de nombreux débats dans les sociétés contemporaines. D'une part, faciliter l'immigration permet de répondre aux besoins économiques, notamment dans les secteurs en pénurie de main-d'œuvre, et enrichit culturellement les sociétés d'accueil. Il est essentiel que les gouvernements mettent en place des politiques d'intégration efficaces pour que les nouveaux arrivants puissent contribuer pleinement à la société. D'autre part, certains estiment qu'il faille encadrer davantage l'immigration afin d'éviter une pression excessive sur les infrastructures publiques, comme le logement ou la santé. En conclusion, je pense qu'une immigration bien régulée, accompagnée de mesures d'intégration solides, est bénéfique tant pour les immigrants que pour la société d'accueil."
- },
- eo:{
-  title:"دافع على رأيك أمام حجة مخالفة",
-  instr:"شخص كيقول ليك: 'الهجرة كتخلق مشاكل اكثر ملي كتحل'. دافع على رأيك المخالف (3 دقائق)، بحجج قوية.",
-  criteria:["اعترف بالحجة المخالفة قبل ما ترد عليها","عطي حجج مبنية على أمثلة","حافظ على نبرة محترمة ومقنعة"],
-  model:"Je comprends votre point de vue, mais je ne suis pas entièrement d'accord. Il est vrai que l'immigration peut poser certains défis, notamment en matière d'intégration. Cependant, de nombreuses études montrent que l'immigration contribue positivement à l'économie, en comblant les pénuries de main-d'œuvre et en stimulant l'innovation. De plus, la diversité culturelle enrichit la société dans son ensemble. Il me semble donc que les avantages de l'immigration, lorsqu'elle est bien accompagnée, dépassent largement les inconvénients."
- }
+ co:[
+  q("Le gouvernement a annoncé une révision de sa politique d'immigration pour mieux répondre aux besoins du marché du travail.","Qu'a annoncé le gouvernement ?",["Une révision de la politique d'immigration","Une baisse des impôts","Une nouvelle loi sur le travail","Un plan de santé"],0,"'une révision de sa politique d'immigration'."),
+  q("Certains économistes estiment que la hausse des taux d'intérêt pourrait ralentir la croissance économique dans les mois à venir.","Que pourrait provoquer la hausse des taux ?",["Une accélération de la croissance","Un ralentissement de la croissance","Une baisse du chômage","Une hausse des salaires"],1,"'pourrait ralentir la croissance'."),
+  q("Le débat sur la réforme des retraites divise l'opinion publique depuis plusieurs semaines.","Quel sujet divise l'opinion publique ?",["La réforme des retraites","La réforme de l'éducation","La réforme fiscale","La réforme de la santé"],0,"'la réforme des retraites'."),
+  q("Malgré les critiques, le gouvernement maintient sa décision de réduire les subventions agricoles.","Que décide de faire le gouvernement malgré les critiques ?",["Augmenter les subventions","Réduire les subventions agricoles","Supprimer les impôts","Ouvrir de nouvelles usines"],1,"'maintient sa décision de réduire'."),
+  q("Les experts s'accordent à dire que la transition énergétique nécessitera des investissements massifs dans les infrastructures.","Que nécessitera la transition énergétique ?",["Moins de réglementation","Des investissements massifs","Une baisse de la consommation","Rien de particulier"],1,"'nécessitera des investissements massifs'."),
+  q("La question de la régulation de l'intelligence artificielle est désormais au cœur des discussions internationales.","Quel sujet est au cœur des discussions internationales ?",["La régulation de l'IA","Le commerce international","Le changement climatique uniquement","La démographie"],0,"'la régulation de l'intelligence artificielle'."),
+  q("Plusieurs entreprises multinationales revoient leur stratégie face à l'incertitude économique mondiale.","Pourquoi les entreprises revoient-elles leur stratégie ?",["Face à l'incertitude économique mondiale","Pour réduire les impôts","Pour attirer plus de touristes","Pour changer de logo"],0,"'face à l'incertitude économique mondiale'."),
+  q("Les chercheurs soulignent l'importance d'une coopération internationale pour lutter efficacement contre les pandémies futures.","Que soulignent les chercheurs ?",["L'importance d'une coopération internationale","L'inutilité des vaccins","Le rôle des transports","La fermeture des frontières"],0,"'l'importance d'une coopération internationale'."),
+  q("La réforme du système éducatif vise à mieux préparer les élèves aux compétences numériques.","Quel est l'objectif principal de la réforme éducative ?",["Mieux préparer les élèves aux compétences numériques","Réduire les vacances scolaires","Augmenter le nombre d'élèves par classe","Supprimer les examens"],0,"'vise à mieux préparer les élèves aux compétences numériques'."),
+  q("Certains analystes estiment que la diversification économique est essentielle pour réduire la dépendance aux exportations de matières premières.","Que recommandent certains analystes ?",["La diversification économique","L'augmentation des exportations de matières premières","La réduction des investissements","La fermeture des usines"],0,"'la diversification économique est essentielle'.")
+ ],
+ ce:[
+  q("Le Canada a introduit de nouvelles mesures pour faciliter l'intégration des immigrants francophones hors Québec, avec des points supplémentaires dans Entrée express.","Quel est l'objectif principal des nouvelles mesures ?",["Faciliter l'intégration des immigrants francophones hors Québec","Réduire l'immigration totale","Supprimer le système Entrée express","Favoriser uniquement les anglophones"],0,"'faciliter l'intégration des immigrants francophones hors Québec'."),
+  q("La question du logement abordable demeure un enjeu majeur pour les grandes métropoles, où les prix ne cessent d'augmenter.","Quel enjeu est évoqué ?",["Le logement abordable","Le transport public","L'éducation","La santé"],0,"'le logement abordable'."),
+  q("Bien que la technologie ait transformé le monde du travail, elle soulève aussi des inquiétudes quant à la disparition de certains emplois.","Quelle inquiétude est mentionnée ?",["La disparition de certains emplois","La hausse des salaires","Le manque de technologie","La réduction du temps de travail"],0,"'la disparition de certains emplois'."),
+  q("Face à la pénurie de main-d'œuvre, plusieurs secteurs se tournent vers l'automatisation pour maintenir leur production.","Pourquoi certains secteurs s'automatisent-ils ?",["Pénurie de main-d'œuvre","Trop d'employés","Baisse de la demande","Nouvelle loi"],0,"'face à la pénurie de main-d'œuvre'."),
+  q("Les autorités appellent à une gestion plus durable des ressources en eau face aux effets du changement climatique.","Que demandent les autorités ?",["Une gestion plus durable de l'eau","Plus de barrages","Moins d'agriculture","Rien de particulier"],0,"'une gestion plus durable des ressources en eau'."),
+  q("Le télétravail transfrontalier soulève des questions complexes en matière de fiscalité et de droit du travail.","Quelles questions soulève le télétravail transfrontalier ?",["Fiscalité et droit du travail","Transport et logement","Santé et éducation","Alimentation et climat"],0,"'fiscalité et droit du travail'."),
+  q("Le vieillissement de la population pose des défis majeurs pour le financement des systèmes de retraite dans plusieurs pays développés.","Quel défi est évoqué ?",["Le financement des systèmes de retraite","Le manque de logements","La pollution industrielle","Le chômage des jeunes"],0,"'le financement des systèmes de retraite'."),
+  q("Bien que les énergies renouvelables progressent, elles ne représentent encore qu'une part limitée du mix énergétique mondial.","Que peut-on dire des énergies renouvelables selon le texte ?",["Elles progressent mais restent limitées dans le mix énergétique","Elles dominent déjà le mix énergétique","Elles sont en déclin","Elles sont interdites dans certains pays"],0,"'progressent... mais... encore qu'une part limitée'."),
+  q("La multiplication des accords commerciaux bilatéraux complique parfois la mise en place de normes internationales communes.","Que complique la multiplication des accords bilatéraux ?",["La mise en place de normes internationales communes","Le commerce local","Le tourisme international","Les transports en commun"],0,"'complique... la mise en place de normes internationales communes'."),
+  q("Face à la désinformation en ligne, plusieurs plateformes ont renforcé leurs mécanismes de vérification des faits.","Comment certaines plateformes réagissent-elles à la désinformation ?",["En renforçant la vérification des faits","En supprimant tous les commentaires","En fermant leurs services","En augmentant la publicité"],0,"'ont renforcé leurs mécanismes de vérification des faits'.")
+ ],
+ ee:[
+  task("Tâche 1","المهمة 1 — إيميل رسمي","اكتب إيميل رسمي لإدارة باش تعترض على قرار (100-120 كلمة).",["صيغة رسمية","حجة واضحة ومهذبة"],"Objet : Contestation d'une décision administrative\n\nMadame, Monsieur,\n\nJe me permets de vous écrire concernant la décision reçue le 12 juillet dernier, que je considère injustifiée au vu des documents fournis. Je vous prie de bien vouloir réexaminer mon dossier, en tenant compte des pièces jointes à ce courrier. Je reste à votre disposition pour tout complément d'information.\n\nDans l'attente de votre réponse, je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.",0,"100-120"),
+  task("Tâche 2","المهمة 2 — مقارنة رأيين","جوج آراء كيتعارضو على الذكاء الاصطناعي فالخدمة. قارن وعطي رأيك (150-180 كلمة).",["قارن الرأيين بوضوح","موقف شخصي مبرر"],"D'un côté, certains estiment que l'intelligence artificielle augmente la productivité et libère du temps pour des tâches à plus forte valeur ajoutée. D'un autre côté, d'autres craignent qu'elle ne remplace progressivement de nombreux emplois. À mon sens, ces deux points de vue sont valables : l'IA transforme le travail sans nécessairement le supprimer, à condition que les travailleurs soient formés à ces nouveaux outils.",0,"150-180"),
+  task("Tâche 3","المهمة 3 — نص حجاجي مركب","كتب نص حجاجي: 'واش خاص نزيدو تقنين الشبكات الاجتماعية؟' (200-250 كلمة، مقدمة/تطوير/خلاصة).",["حجج مع وضد","subjonctif ومواصلات معقدة","خلاصة شخصية"],"La régulation des réseaux sociaux est un sujet qui suscite de vifs débats dans les sociétés contemporaines. D'une part, il est indéniable que ces plateformes favorisent la diffusion de fausses informations et peuvent nuire à la santé mentale des jeunes utilisateurs. Il semble donc essentiel que les gouvernements imposent des règles plus strictes concernant la modération des contenus. D'autre part, certains craignent qu'une régulation excessive ne porte atteinte à la liberté d'expression, un droit fondamental dans toute société démocratique. En conclusion, je pense qu'une régulation équilibrée, qui protège les utilisateurs sans restreindre excessivement la liberté d'expression, est la solution la plus raisonnable.",0,"200-250")
+ ],
+ eo:[
+  task("Tâche 1","المهمة 1 — مقابلة موجهة معقدة","جاوب بلا تحضير: Que pensez-vous de l'évolution de votre secteur professionnel ?",["رأي شخصي مفصل","مفردات دقيقة"],"Mon secteur évolue rapidement à cause de la digitalisation. Je pense que c'est positif car cela crée de nouvelles opportunités, mais cela demande aussi une formation continue pour rester compétitif.",0),
+  task("Tâche 2","المهمة 2 — تفاوض (مع تحضير)","خاصك تفاوض على أجل إضافي مع زبون غير راضي.",["اعترف بالمشكل","اقترح حل واضح"],"Je comprends votre frustration et je m'en excuse. Malheureusement, un imprévu a retardé le projet. Je vous propose un délai supplémentaire de trois jours, ainsi qu'une réduction de dix pour cent en compensation.",60),
+  task("Tâche 3","المهمة 3 — دفاع على رأي (3 دقائق)","شخص كيقول ليك: 'الهجرة كتخلق مشاكل اكثر ملي كتحل'. دافع على رأيك المخالف بحجج قوية.",["اعترف بالحجة المخالفة قبل الرد","حجج مبنية على أمثلة","نبرة محترمة ومقنعة"],"Je comprends votre point de vue, mais je ne suis pas entièrement d'accord. Il est vrai que l'immigration peut poser certains défis d'intégration. Cependant, de nombreuses études montrent qu'elle contribue positivement à l'économie, en comblant les pénuries de main-d'œuvre et en stimulant l'innovation. Il me semble donc que les avantages, lorsqu'elle est bien accompagnée, dépassent largement les inconvénients.",0)
+ ]
 }
 };
 
 /* ===================== STATE ===================== */
 let currentLevel = "A0";
 let currentSkill = "co";
-let progress = {}; // key: "A0-co" -> {done:true, score, total}
+let currentQIndex = 0;
+let currentTask = 0;
+let guideMode = false;
+let state = { answers:{}, taskViewed:{} };
 
 /* ===================== STORAGE ===================== */
-async function loadProgress(){
+async function loadState(){
   try{
-    const res = await window.storage.get('tcf-progress', false);
-    if(res && res.value) progress = JSON.parse(res.value);
-  }catch(e){ progress = {}; }
+    const res = await window.storage.get('tcf-exam-state', false);
+    if(res && res.value) state = JSON.parse(res.value);
+  }catch(e){ state = { answers:{}, taskViewed:{} }; }
+  enterCurrent();
   render();
 }
-async function saveProgress(){
-  try{ await window.storage.set('tcf-progress', JSON.stringify(progress), false); }catch(e){}
+async function saveState(){
+  try{ await window.storage.set('tcf-exam-state', JSON.stringify(state), false); }catch(e){}
+}
+
+/* ===================== HELPERS ===================== */
+function quizKey(lv,sk){ return lv+'-'+sk; }
+function isQuizSkill(sk){ return sk==='co' || sk==='ce'; }
+
+function enterCurrent(){
+  if(isQuizSkill(currentSkill)){
+    const key = quizKey(currentLevel,currentSkill);
+    const items = CONTENT[currentLevel][currentSkill];
+    if(!state.answers[key]) state.answers[key] = new Array(items.length).fill(null);
+    const idx = state.answers[key].findIndex(a=>a===null);
+    currentQIndex = idx===-1 ? items.length : idx;
+  } else {
+    currentTask = 0;
+  }
+}
+
+function levelDone(lv){
+  return SKILLS.every(s=>skillDone(lv,s.id));
+}
+function skillDone(lv,sk){
+  if(isQuizSkill(sk)){
+    const key = quizKey(lv,sk);
+    const arr = state.answers[key];
+    return arr && arr.every(a=>a!==null);
+  } else {
+    const tasks = CONTENT[lv][sk];
+    return tasks.every((t,i)=> state.taskViewed[lv+'-'+sk+'-'+i]);
+  }
+}
+function globalPercent(){
+  let total=0, done=0;
+  LEVELS.forEach(lv=>SKILLS.forEach(s=>{
+    if(isQuizSkill(s.id)){
+      const items = CONTENT[lv][s.id];
+      total += items.length;
+      const arr = state.answers[quizKey(lv,s.id)];
+      if(arr) done += arr.filter(a=>a!==null).length;
+    } else {
+      const tasks = CONTENT[lv][s.id];
+      total += tasks.length;
+      tasks.forEach((t,i)=>{ if(state.taskViewed[lv+'-'+s.id+'-'+i]) done++; });
+    }
+  }));
+  return Math.round(done/total*100);
 }
 
 /* ===================== RENDER SHELL ===================== */
 function renderLevelTabs(){
   const el = document.getElementById('levelTabs');
   el.innerHTML = LEVELS.map(lv=>{
-    const doneCount = SKILLS.filter(s=>progress[lv+'-'+s.id] && progress[lv+'-'+s.id].done).length;
-    const stamp = doneCount===4 ? `<div class="stamp">✓</div>` : '';
+    const stamp = levelDone(lv) ? `<div class="stamp">✓</div>` : '';
     return `<div class="pp-tab ${lv===currentLevel?'active':''}" data-level="${lv}">
-      ${stamp}
-      <div class="code mono">${lv}</div>
-      <div class="lbl">${LEVEL_LABELS[lv]}</div>
+      ${stamp}<div class="code mono">${lv}</div><div class="lbl">${LEVEL_LABELS[lv]}</div>
     </div>`;
   }).join('');
-  el.querySelectorAll('.pp-tab').forEach(t=>t.onclick=()=>{currentLevel=t.dataset.level; render();});
+  el.querySelectorAll('.pp-tab').forEach(t=>t.onclick=()=>{currentLevel=t.dataset.level; enterCurrent(); render();});
 }
-
 function renderSkillTabs(){
   const el = document.getElementById('skillTabs');
   el.innerHTML = SKILLS.map(s=>{
-    const done = progress[currentLevel+'-'+s.id] && progress[currentLevel+'-'+s.id].done;
+    const done = skillDone(currentLevel,s.id);
     return `<button class="sk-tab ${s.id===currentSkill?'active':''} ${done?'done':''}" data-skill="${s.id}">
       <span class="badge"></span>${s.icon} ${s.ar} <span class="fr" style="opacity:.7;font-size:12px;">(${s.fr})</span>
     </button>`;
   }).join('');
-  el.querySelectorAll('.sk-tab').forEach(t=>t.onclick=()=>{currentSkill=t.dataset.skill; render();});
+  el.querySelectorAll('.sk-tab').forEach(t=>t.onclick=()=>{currentSkill=t.dataset.skill; enterCurrent(); render();});
 }
-
 function updateGlobalProgress(){
-  let done=0;
-  LEVELS.forEach(lv=>SKILLS.forEach(s=>{ if(progress[lv+'-'+s.id] && progress[lv+'-'+s.id].done) done++; }));
-  document.getElementById('globalProgress').textContent = `${done} / 20 تمرين خدمتي`;
+  document.getElementById('globalProgress').textContent = globalPercent()+'% خدمتي';
 }
 
 /* ===================== RENDER CONTENT ===================== */
 function render(){
-  renderLevelTabs();
-  renderSkillTabs();
-  updateGlobalProgress();
-  const data = CONTENT[currentLevel][currentSkill];
+  renderLevelTabs(); renderSkillTabs(); updateGlobalProgress();
   const box = document.getElementById('content');
-  if(currentSkill==='co' || currentSkill==='ce'){
-    box.innerHTML = renderQuiz(data, currentSkill);
-    attachQuizEvents(data);
-  } else {
-    box.innerHTML = renderProduction(data, currentSkill);
-    attachProductionEvents(data);
-  }
+  const guideBtn = document.getElementById('guideBtn');
+  guideBtn.onclick = ()=>{ guideMode = !guideMode; render(); };
+  guideBtn.textContent = guideMode ? '⬅ رجع للتمارين' : '📘 دليل الاستراتيجية والقوالب';
+  document.getElementById('levelTabs').style.display = guideMode ? 'none' : 'flex';
+  document.getElementById('skillTabs').style.display = guideMode ? 'none' : 'flex';
+  if(guideMode){ box.innerHTML = renderGuide(); return; }
+  if(isQuizSkill(currentSkill)) box.innerHTML = renderQuizScreen();
+  else box.innerHTML = renderTaskScreen();
+  attachEvents();
 }
 
-function renderQuiz(data, skill){
-  const isCO = skill==='co';
+function renderGuide(){
   return `
   <div class="card">
-    <h2>${data.title}</h2>
-    <div class="sub">${SKILLS.find(s=>s.id===skill).fr} · ${currentLevel}</div>
-    <div class="instr">${data.instr}</div>
-    ${isCO ? `
+    <h2>⏱ توقيت الامتحان الحقيقي (بحال الكومبيوتر)</h2>
+    <div class="sub">هاكذا كيدوز نهار الامتحان بالضبط، من QCM حتى للمقابلة الشفوية</div>
+    <ul class="criteria">
+      <li>الفهم الشفوي (CO): 40 دقيقة · 40 سؤال QCM · الأودیو كيتقرا وحدو وكتجاوب، ما ترجعش تقدر تبدل — دوز أوتوماتيكي للسؤال الموالي</li>
+      <li>الفهم الكتابي (CE): 45 دقيقة · 40 سؤال QCM · وقتك ديالك، كتحكم فالسرعة ديالك</li>
+      <li>التعبير الكتابي (EE): 60 دقيقة كاملة (T1: ~15د / T2: ~25د / T3: ~20د) · على لكلافي</li>
+      <li>التعبير الشفوي (EO): ~12 دقيقة مع ممتحن حقيقي (T1: بلا تحضير حي، حضرها من الدار / T2: دقيقة تحضير / T3: بلا تحضير، تهضر مباشرة)</li>
+      <li>الوقت الإجمالي فالمركز: 3 إلى 4 سوايع (تحسب معاها وقت الدخول، التأكد من الهوية، والاستراحة بين الأقسام)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🗣 قوالب التعبير الشفوي (Templates)</h2>
+    <h3 style="font-size:16px;margin:14px 0 6px;">Tâche 1 — تقديم النفس (حضرها من الدار، غادي تجاوب بيها غير بحفظ)</h3>
+    <div class="passage fr">Bonjour. Je m'appelle [الاسم], j'ai [السن] ans et j'habite à [المدينة].
+Actuellement, je travaille dans [الخدمة]. Avant cela, j'ai eu une expérience dans [تجربة قديمة].
+Pendant mon temps libre, j'aime [هواية 1] et [هواية 2].
+Aujourd'hui, je prépare le TCF Canada parce que j'ai le projet d'immigrer au Canada pour [الهدف ديالك].</div>
+    <h3 style="font-size:16px;margin:14px 0 6px;">Tâche 2 — تفاعل (اسول على معلومات، الوقت دقيقة تحضير)</h3>
+    <ul class="criteria">
+      <li>Intro: "Bonjour Monsieur/Madame, je vous appelle suite à votre annonce concernant [الموضوع]..."</li>
+      <li>أوقات ومكان: Où se trouve...? / Quels sont vos horaires? / Est-ce que vous êtes ouvert le week-end?</li>
+      <li>ثمن وأداء: Combien coûte...? / Est-ce qu'il y a des réductions? / Quels sont les modes de paiement?</li>
+      <li>تفاصيل: Quels documents sont nécessaires? / Faut-il réserver à l'avance?</li>
+      <li>خاتمة: "Merci beaucoup pour ces informations. Bonne journée !"</li>
+      <li>استعمل غير Vous (الاحترام)، والفعل بصيغة المجاملة: J'aimerais savoir... / Pourriez-vous me dire...?</li>
+    </ul>
+    <h3 style="font-size:16px;margin:14px 0 6px;">Tâche 3 — إبداء الرأي (بلا تحضير، تهضر مباشرة)</h3>
+    <div class="passage fr">C'est un sujet très intéressant. À mon avis, je pense que [موقفك] pour plusieurs raisons.
+D'abord, [الحجة الأولى]. Par exemple, [مثال بسيط].
+Ensuite, [الحجة الثانية]. En conclusion, je trouve que c'est une excellente chose / un vrai problème.</div>
+  </div>
+
+  <div class="card">
+    <h2>✍️ قوالب التعبير الكتابي</h2>
+    <ul class="criteria">
+      <li>رسالة ودية (Tâche 1): البداية "Salut [الاسم], j'espère que tu vas bien..." · النهاية "Écris-moi vite ! À bientôt."</li>
+      <li>رسالة رسمية (Tâche 2/3): البداية "Madame, Monsieur," · النهاية "Cordialement,"</li>
+      <li>روابط منطقية أساسية: De plus / En outre (بالإضافة) · Cependant / Pourtant (ولكن) · Par conséquent (بناءً على ذلك) · Parce que / C'est pourquoi (السبب والنتيجة)</li>
+      <li>قالب Tâche 3 (رأي): Aujourd'hui, le débat sur [الموضوع] est très important... D'une part, [حجة1]... D'autre part, [حجة2]... En conclusion, ...</li>
+      <li>نصيحة: جمل قصيرة (فاعل+فعل+مفعول به) أحسن من جمل طويلة فيها أخطاء</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📐 القواعد الأساسية اللي كتحتاجها بزاف</h2>
+    <ul class="criteria">
+      <li>3 أزمنة أساسية: الحاضر (Présent) — التقديم والرأي · الماضي المركب (Passé composé) — التجارب · المستقبل البسيط (Futur simple) — المشاريع</li>
+      <li>الضمائر: 90% كتحتاج غير Je (فالكتابة والتقديم) و Vous (فالتفاعل/الرسائل الرسمية)</li>
+      <li>الأفعال: المجموعة الأولى (er) هي 80% ديال الأفعال لي غاتحتاجها (parler, travailler, habiter, chercher, utiliser) + 4 أفعال شاذة أساسية: être, avoir, faire, aller</li>
+      <li>التوافق: النعت كيتبع الكلمة (un projet intéressant / une idée intéressante) والجمع كياخد -s</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📚 المفردات حسب المجال</h2>
+    <ul class="criteria">
+      <li>الحياة اليومية والخدمات: حجز، شراء، تخفيضات، اشتراك</li>
+      <li>الخدمة والعمل: télétravail، compétences، expérience professionnelle</li>
+      <li>البيئة والتكنولوجيا: protéger la nature، les réseaux sociaux، développer une application</li>
+      <li>السفر والثقافة: découvrir، le paysage، une exposition، le patrimoine</li>
+      <li>مواضيع كتتعاود بزاف فـ EE/EO: التسوق أونلاين ضد المحلات التقليدية، الذكاء الاصطناعي فالخدمة، الرياضة إجبارية فالعمل، النقل العمومي ضد السيارة الخاصة، العمل عن بعد</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🇲🇦 معلومات عملية على الامتحان فالمغرب</h2>
+    <ul class="criteria">
+      <li>الثمن: بين 2600 و 2800 درهم حسب المركز (كاين مصاريف ملف خفيفة زيادة أحياناً)</li>
+      <li>سجل من قبل بشهر ونصف/شهرين، المقاعد كيطيرو بزاف بالرباط</li>
+      <li>النتيجة: شهادة مؤقتة (نقط QCM) نفس النهار · الشهادة الرسمية النهائية بين 15 و21 يوم</li>
+      <li>مدة صلاحية الشهادة: عامين من نهار الامتحان</li>
+      <li>مراكز قريبة من سلا/الرباط: L'Institut Français de Rabat (حي أكدال) — المركز الرسمي الأشهر · مراكز معتمدة أخرى بحال معاهد اللغات فالرباط (شارع محمد الخامس بحسان)</li>
+    </ul>
+  </div>`;
+}
+
+function renderQuizScreen(){
+  const items = CONTENT[currentLevel][currentSkill];
+  const key = quizKey(currentLevel,currentSkill);
+  const skillMeta = SKILLS.find(s=>s.id===currentSkill);
+  if(currentQIndex >= items.length){
+    const arr = state.answers[key];
+    let score=0;
+    const rows = items.map((it,i)=>{
+      const chosen = arr[i];
+      const correct = chosen===it.c;
+      if(correct) score++;
+      const letters=['A','B','C','D'];
+      return `<div class="review-item">
+        <div class="q fr">${i+1}. ${it.question}</div>
+        <div class="ans-line ${correct?'ok-txt':'bad-txt'} fr">جوابك: ${chosen!==null?letters[chosen]+') '+it.opts[chosen]:'—'} ${correct?'✓':'✗'}</div>
+        ${!correct?`<div class="ans-line ok-txt fr">الجواب الصحيح: ${letters[it.c]}) ${it.opts[it.c]}</div>`:''}
+        <div class="explain">💡 ${it.ex}</div>
+      </div>`;
+    }).join('');
+    return `<div class="card">
+      <h2>${skillMeta.ar} — ${currentLevel}</h2>
+      <div class="score-box">
+        <div class="num">${score} / ${items.length}</div>
+        <div class="cecrl">مستوى ${currentLevel} · التصحيح الكامل تحت</div>
+      </div>
+      ${rows}
+      <button class="btn" id="retakeBtn" style="margin-top:16px;">أعد الاختبار من البداية</button>
+    </div>`;
+  }
+  const it = items[currentQIndex];
+  const pct = Math.round(currentQIndex/items.length*100);
+  const letters=['A','B','C','D'];
+  return `<div class="card">
+    <h2>${skillMeta.ar} — ${currentLevel}</h2>
+    <div class="sub">${skillMeta.fr} · سؤال ${currentQIndex+1} من ${items.length}</div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+    <div class="q-counter"><span>السؤال ${currentQIndex+1}/${items.length}</span><span>ما ترجعش تقدر تبدل الجواب من بعد ما تختار</span></div>
+    ${currentSkill==='co' ? `
       <div class="playbar">
         <button class="btn" id="playBtn">▶ شغل التسجيل</button>
         <button class="btn secondary" id="toggleTranscript">إظهار/إخفاء النص</button>
       </div>
-      <div class="transcript-box fr" id="transcriptBox">${data.transcript}</div>
-    ` : `<div class="passage fr">${data.passage}</div>`}
-    <div id="questions">
-      ${data.questions.map((q,qi)=>`
-        <div class="q" data-qi="${qi}">
-          <div class="qtext fr">${qi+1}. ${q.q}</div>
-          ${q.opts.map((o,oi)=>`
-            <label class="opt fr" data-oi="${oi}">
-              <input type="radio" name="q${qi}" value="${oi}"> ${o}
-            </label>`).join('')}
-          <div class="explain" id="ex${qi}">💡 ${q.ex}</div>
-        </div>
-      `).join('')}
-    </div>
-    <button class="btn" id="checkBtn">صحح الإجابات</button>
-    <div class="score-box" id="scoreBox">
-      <div class="num" id="scoreNum">0/0</div>
-      <div>النتيجة ديالك</div>
+      <div class="transcript-box fr" id="transcriptBox">${it.stim}</div>
+    ` : `<div class="passage fr">${it.stim}</div>`}
+    <div class="qtext fr">${it.question}</div>
+    <div id="optsWrap">
+      ${it.opts.map((o,oi)=>`<div class="opt fr" data-oi="${oi}">${letters[oi]}) ${o}</div>`).join('')}
     </div>
   </div>`;
 }
 
-function renderProduction(data, skill){
-  const isEO = skill==='eo';
-  return `
-  <div class="card">
-    <h2>${data.title}</h2>
-    <div class="sub">${SKILLS.find(s=>s.id===skill).fr} · ${currentLevel}</div>
-    <div class="instr">${data.instr}</div>
-    <ul class="criteria">${data.criteria.map(c=>`<li>${c}</li>`).join('')}</ul>
+function renderTaskScreen(){
+  const tasks = CONTENT[currentLevel][currentSkill];
+  const skillMeta = SKILLS.find(s=>s.id===currentSkill);
+  const t = tasks[currentTask];
+  const isEO = currentSkill==='eo';
+  const viewed = !!state.taskViewed[currentLevel+'-'+currentSkill+'-'+currentTask];
+  return `<div class="card">
+    <h2>${skillMeta.ar} — ${currentLevel}</h2>
+    <div class="sub">${skillMeta.fr}</div>
+    <div class="task-tabs">
+      ${tasks.map((tk,i)=>`<div class="task-tab ${i===currentTask?'active':''} ${state.taskViewed[currentLevel+'-'+currentSkill+'-'+i]?'viewed':''}" data-task="${i}">${tk.tag}</div>`).join('')}
+    </div>
+    <div class="task-tag">${t.tag}${t.words? ' · '+t.words+' mots' : ''}</div>
+    <h3 style="margin:0 0 10px;font-size:17px;">${t.label}</h3>
+    <div class="instr">${t.instr}</div>
+    <ul class="criteria">${t.criteria.map(c=>`<li>${c}</li>`).join('')}</ul>
     ${isEO ? `
-      <div class="playbar">
-        <button class="btn secondary" id="prepBtn">⏱ ابدا التحضير (60 ثانية)</button>
+      ${t.prep>0 ? `<div class="playbar">
+        <button class="btn secondary" id="prepBtn">⏱ ابدا التحضير (${t.prep} ثانية)</button>
         <span id="timerLabel" class="mono" style="color:var(--gold-soft);"></span>
-      </div>
-      <p style="font-size:13.5px;color:var(--paper-dim);">قول جوابك بصوت عالي (وحدك ولا سجل راسك)، من بعد قارن مع النموذج.</p>
+      </div>` : `<p style="font-size:13px;color:var(--paper-dim);">هاد المهمة بلا تحضير — جاوب مباشرة بحال الامتحان الحقيقي.</p>`}
+      <p style="font-size:13.5px;color:var(--paper-dim);">قول جوابك بصوت عالي، من بعد قارن مع النموذج.</p>
     ` : `
       <textarea id="userText" placeholder="اكتب جوابك هنا بالفرنسية..."></textarea>
       <div class="wordcount" id="wc">0 كلمة</div>
     `}
     <button class="btn" id="revealBtn">${isEO ? 'استمع/شوف النموذج' : 'شوف نموذج التصحيح'}</button>
-    <div class="model-box" id="modelBox">
+    <div class="model-box" id="modelBox" style="${viewed?'display:block;':''}">
       <h4>✔ نموذج مقترح (Modèle de réponse)</h4>
-      <div class="fr">${data.model}</div>
+      <div class="fr" style="white-space:pre-line;">${t.model}</div>
       ${isEO ? `<button class="btn secondary" style="margin-top:12px;" id="playModel">▶ سمع النموذج</button>` : ''}
     </div>
   </div>`;
 }
 
-/* ===================== EVENTS: QUIZ ===================== */
-function attachQuizEvents(data){
-  const playBtn = document.getElementById('playBtn');
-  if(playBtn){
-    playBtn.onclick = ()=>{
-      speak(data.transcript);
+/* ===================== EVENTS ===================== */
+function attachEvents(){
+  if(isQuizSkill(currentSkill)){
+    const items = CONTENT[currentLevel][currentSkill];
+    if(currentQIndex >= items.length){
+      const retake = document.getElementById('retakeBtn');
+      if(retake) retake.onclick = ()=>{
+        state.answers[quizKey(currentLevel,currentSkill)] = new Array(items.length).fill(null);
+        saveState(); enterCurrent(); render();
+      };
+      return;
+    }
+    const playBtn = document.getElementById('playBtn');
+    if(playBtn) playBtn.onclick = ()=> speak(items[currentQIndex].stim);
+    const toggleT = document.getElementById('toggleTranscript');
+    if(toggleT) toggleT.onclick = ()=>{
+      const b = document.getElementById('transcriptBox');
+      b.style.display = b.style.display==='block' ? 'none' : 'block';
     };
-  }
-  const toggleT = document.getElementById('toggleTranscript');
-  if(toggleT){
-    toggleT.onclick = ()=>{
-      const box = document.getElementById('transcriptBox');
-      box.style.display = box.style.display==='block' ? 'none' : 'block';
-    };
-  }
-  document.getElementById('checkBtn').onclick = ()=>{
-    let score = 0;
-    data.questions.forEach((q,qi)=>{
-      const selected = document.querySelector(`input[name="q${qi}"]:checked`);
-      const opts = document.querySelectorAll(`.q[data-qi="${qi}"] .opt`);
-      opts.forEach((o,oi)=>{
-        if(oi===q.c) o.classList.add('correct');
-        else if(selected && parseInt(selected.value)===oi) o.classList.add('wrong');
-      });
-      document.getElementById('ex'+qi).style.display='block';
-      if(selected && parseInt(selected.value)===q.c) score++;
+    document.querySelectorAll('#optsWrap .opt').forEach(opt=>{
+      opt.onclick = ()=>{
+        const oi = parseInt(opt.dataset.oi);
+        const key = quizKey(currentLevel,currentSkill);
+        state.answers[key][currentQIndex] = oi;
+        saveState();
+        currentQIndex++;
+        render();
+      };
     });
-    document.getElementById('scoreBox').style.display='block';
-    document.getElementById('scoreNum').textContent = `${score}/${data.questions.length}`;
-    progress[currentLevel+'-'+currentSkill] = {done:true, score, total:data.questions.length};
-    saveProgress();
-    renderLevelTabs(); renderSkillTabs(); updateGlobalProgress();
-  };
-}
-
-/* ===================== EVENTS: PRODUCTION ===================== */
-function attachProductionEvents(data){
-  const ta = document.getElementById('userText');
-  if(ta){
-    ta.oninput = ()=>{
+  } else {
+    document.querySelectorAll('.task-tab').forEach(tb=>{
+      tb.onclick = ()=>{ currentTask = parseInt(tb.dataset.task); render(); };
+    });
+    const ta = document.getElementById('userText');
+    if(ta) ta.oninput = ()=>{
       const words = ta.value.trim().split(/\s+/).filter(Boolean).length;
       document.getElementById('wc').textContent = `${words} كلمة`;
     };
-  }
-  const prepBtn = document.getElementById('prepBtn');
-  if(prepBtn){
-    prepBtn.onclick = ()=>{
-      let t = 60;
-      prepBtn.disabled = true;
-      const lbl = document.getElementById('timerLabel');
-      lbl.textContent = t + ' s';
-      const iv = setInterval(()=>{
-        t--;
+    const prepBtn = document.getElementById('prepBtn');
+    if(prepBtn){
+      prepBtn.onclick = ()=>{
+        const tasks = CONTENT[currentLevel][currentSkill];
+        let t = tasks[currentTask].prep;
+        prepBtn.disabled = true;
+        const lbl = document.getElementById('timerLabel');
         lbl.textContent = t + ' s';
-        if(t<=0){ clearInterval(iv); lbl.textContent = 'الوقت سالا — دابا تكلم!'; prepBtn.disabled=false; }
-      },1000);
+        const iv = setInterval(()=>{
+          t--; lbl.textContent = t + ' s';
+          if(t<=0){ clearInterval(iv); lbl.textContent = 'الوقت سالا — دابا تكلم!'; prepBtn.disabled=false; }
+        },1000);
+      };
+    }
+    const revealBtn = document.getElementById('revealBtn');
+    if(revealBtn) revealBtn.onclick = ()=>{
+      document.getElementById('modelBox').style.display='block';
+      state.taskViewed[currentLevel+'-'+currentSkill+'-'+currentTask] = true;
+      saveState();
+      renderLevelTabs(); renderSkillTabs(); updateGlobalProgress();
+      document.querySelectorAll('.task-tab')[currentTask].classList.add('viewed');
+      const pm = document.getElementById('playModel');
+      if(pm) pm.onclick = ()=> speak(CONTENT[currentLevel][currentSkill][currentTask].model);
     };
   }
-  document.getElementById('revealBtn').onclick = ()=>{
-    document.getElementById('modelBox').style.display='block';
-    progress[currentLevel+'-'+currentSkill] = {done:true};
-    saveProgress();
-    renderLevelTabs(); renderSkillTabs(); updateGlobalProgress();
-    const pm = document.getElementById('playModel');
-    if(pm) pm.onclick = ()=> speak(data.model);
-  };
 }
 
 /* ===================== SPEECH ===================== */
@@ -536,8 +647,7 @@ function speak(text){
   if(!('speechSynthesis' in window)){ alert('المتصفح ديالك ما كيدعمش قراءة الصوت.'); return; }
   window.speechSynthesis.cancel();
   const u = new SpeechSynthesisUtterance(text);
-  u.lang = 'fr-FR';
-  u.rate = 0.92;
+  u.lang = 'fr-FR'; u.rate = 0.92;
   const voices = window.speechSynthesis.getVoices();
   const frVoice = voices.find(v=>v.lang && v.lang.startsWith('fr'));
   if(frVoice) u.voice = frVoice;
@@ -546,7 +656,7 @@ function speak(text){
 window.speechSynthesis && window.speechSynthesis.getVoices();
 
 /* ===================== INIT ===================== */
-loadProgress();
+loadState();
 </script>
 </body>
 </html>
