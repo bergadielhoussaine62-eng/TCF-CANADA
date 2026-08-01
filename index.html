@@ -741,12 +741,15 @@ function startSpeechRecognition(boxId, onUpdate){
 }
 
 async function callClaude(messages, maxTokens){
-  const response = await fetch("https://api.anthropic.com/v1/messages",{
+  // ⚠️ ملحوظة: هاد الطلب كيمشي لـ /api/claude ديالك (Vercel Function) لي فيه الـ API key مخبي.
+  // خاصك تزيد ملف api/claude.js فمشروعك ف Vercel، وتضيف ANTHROPIC_API_KEY فـ Environment Variables.
+  const response = await fetch("/api/claude",{
     method:"POST",
     headers:{"Content-Type":"application/json"},
-    body: JSON.stringify({ model:"claude-sonnet-4-6", max_tokens: maxTokens||800, messages })
+    body: JSON.stringify({ max_tokens: maxTokens||800, messages })
   });
   const data = await response.json();
+  if(!response.ok){ throw new Error(data.error || 'API error'); }
   return (data.content||[]).map(c=>c.text||'').join('\n');
 }
 
